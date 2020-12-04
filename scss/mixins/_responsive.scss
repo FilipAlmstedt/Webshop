@@ -1,0 +1,13 @@
+/*Mixins för responsivteten på sidan*/
+
+@mixin mobiles-only {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tablets-and-desktops {
+    @media screen and (min-width: 769px) {
+        @content;
+    }
+}
