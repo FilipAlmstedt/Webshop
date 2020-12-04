@@ -29,4 +29,20 @@
 
         }
     }
-}
+
+    .footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 10vh;
+        background-color: rgb(46, 69, 53);
+        color: white;
+        text-align: center;
+
+        a {
+            color: white;
+            font-size: large;
+            padding: 5px;
+        }
+    }
+} 
