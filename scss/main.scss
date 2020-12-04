@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    .welcomeContainer {
+        background-image: url('./images/backgroundwallpaper.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        .header {
+            background-color: rgba(240,240,240,0.4);;
+            nav {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    list-style: none;
+                    li {
+                        padding: 1%;
+                        margin: 1%;
+                    }
+                }
+
+            }
+        }
+        .welcomeSection {
+
+        }
+    }
+}
