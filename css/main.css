@@ -17,3 +17,16 @@
       #wrapper .welcomeContainer .header nav ul li {
         padding: 1%;
         margin: 1%; }
+
+#wrapper .footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  background-color: #2e4535;
+  color: white;
+  text-align: center; }
+  #wrapper .footer a {
+    color: white;
+    font-size: large;
+    padding: 5px; }
