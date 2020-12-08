@@ -3,36 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    
+
 
     <link rel="stylesheet" href="css/main.css"/>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
-
-    <title>Document</title>
+    <script src="js/main.js"></script>
+    <title>Webbshop</title>
 </head>
 <body>
     <div id="wrapper">
-        <!--  -->
+        
         <div class="welcomeContainer">
-            <div class="header">
-                <!--<img>-->
-                <nav>
-                    <ul>
-                        <li><a href="">Start</a></li>
-                        <li><a href="">Produkter</a></li>
-                        <li><a href=""></a>Kontakter</li>
-                        <li><a href=""></a>Varukorg</li>
-                    </ul>
-                </nav>
-            </div>
+               
+            <nav>
+                <ul class="menu">
+                    <a href="index.html"><img src="css/images/logo.png" height="45" width="45" alt="Loggan till företaget"></a>
+                    <li class="logo"><a href="index.html">Granaffär</a></li>
+                    <li class="item"><a href="index.html"><i class="fas fa-home"></i> Hem</a></li>
+                    <li class="item"><a href="#main"><i class="fas fa-tree"></i> Produkter</a></li>
+                    <li class="item"><a href="#footer"><i class="fas fa-phone"></i> Kontakta Oss</a></li>
+                    <li class="item"><a href="#"><i class="fas fa-shopping-cart"></i> Varukorg</a></li>
+                    </li>
+                    
+                    <li class="toggle"><span class="bars"></span></li>
+                </ul>
+            </nav>
+            
             <div class="welcomeSection">
-                <h1>Välkommen!</h1>
+                <div class="test">
+                    <h1>God Jul!</h1>
+                    <p>Här kan du köpa julgranar i alla dess former innan julen. Klicka på pilen nedan och hitta din gran!</p>
+                    <br><br>
+                </div>
             </div>
+
+            <!--Dessa divar används som divar så att flex wrap ska funka så alla div:ar ligger på rätt ställe-->
+            <div></div><div></div><div></div>
+
+            <div class="arrowDiv">
+                <div class="test2">
+                    <a href="#main"><i class="fas fa-arrow-alt-circle-down fa-5x"></i></a>
+                </div>
+            </div>
+
         </div>
         <div class="main">
               
         </div>
-        <div class="footer">
+        <div class="footer" id="footer">
 
         </div>
     </div>
