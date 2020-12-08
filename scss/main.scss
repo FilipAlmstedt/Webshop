@@ -25,8 +25,22 @@
 
             }
         }
-        .welcomeSection {
+        
+    }
+    .main {
+        min-height: 100vh;
+        display: flex;
+        background-color: red;
 
+        #productlist {
+            display: flex:
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            li {
+
+            }
         }
     }
 }
