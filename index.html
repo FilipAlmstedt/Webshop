@@ -8,12 +8,15 @@
 
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     
-
-
-    <link rel="stylesheet" href="css/main.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="js/main.js"></script>
+
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css" />
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    
     <title>Webbshop</title>
 </head>
 <body>
@@ -28,29 +31,32 @@
                     <li class="item"><a href="index.html"><i class="fas fa-home"></i> Hem</a></li>
                     <li class="item"><a href="#main"><i class="fas fa-tree"></i> Produkter</a></li>
                     <li class="item"><a href="#footer"><i class="fas fa-phone"></i> Kontakta Oss</a></li>
-                    <li class="item"><a href="#"><i class="fas fa-shopping-cart"></i> Varukorg</a></li>
-                    </li>
+                    <li class="item"><a href="#" id="shoppingCartWindowButton"><i class="fas fa-shopping-cart"></i> Varukorg</a></li>
+                    
                     
                     <li class="toggle"><span class="bars"></span></li>
                 </ul>
             </nav>
             
-            <div class="welcomeSection">
-                <div class="test">
+            <div class="welcomeSectionContainer" id="welcomeSectionContainer">
+                <div class="welcomeSection">
                     <h1>God Jul!</h1>
                     <p>Här kan du köpa julgranar i alla dess former innan julen. Klicka på pilen nedan och hitta din gran!</p>
-                    <br><br>
+                    
                 </div>
             </div>
 
             <!--Dessa divar används som divar så att flex wrap ska funka så alla div:ar ligger på rätt ställe-->
             <div></div><div></div><div></div>
 
-            <div class="arrowDiv">
-                <div class="test2">
+            <div class="arrowDivContainer">
+                <div class="arrowDiv">
                     <a href="#main"><i class="fas fa-arrow-alt-circle-down fa-5x"></i></a>
                 </div>
             </div>
+
+
+           
 
         </div>
         <div class="main">

@@ -1,4 +1,5 @@
 @import './mixins';
+@import './variables';
  
 * { 
     box-sizing: border-box;
@@ -15,216 +16,25 @@
 #wrapper {
     .welcomeContainer {
 
+        /*Basstyling för hela welcomeContainer-div:en*/
         background-image: url("images/backgroundwallpaper.jpg");
         height: 100vh;
         background-position: center;
         background-size: cover;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        font-family:  Helvetica;
+
+        display: $useFlex;
+        flex-direction: $useFlexDirectionColumn;
+        justify-content: $useSpaceBetween;
         
+        @include menu;
+
+        @include welcomeContainerResponsive;
         
-
-        
-
-        .menu {
-            background: rgba(240,240,240,0.6);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            list-style-type: none;
+        @include merryChristmasContainer;
             
-            li {
-                font-size: 16px;
-                padding: 15px 5px;
-                white-space: nowrap;
-               
-
-                a {
-                    color: black;
-                    font-family:  Helvetica;
-                    text-decoration: none;
-                }
-                a:hover {
-                    text-decoration: underline;
-                }
-            }   
-
-            .logo { 
-                
-                a:hover {
-                    text-decoration: none;
-                    color: red;
-                    transition: color 0.2s ease-out;
-                }
-                a {
-                    font-size: 25px;
-                    color: darkred;
-                }
-            }
-            .item.button {
-                order: 2;
-            }
-            .item {
-                width: 100%;
-                text-align: center;
-                order: 3;
-                display: none;
-               
-                a:hover{
-                    color: red;
-                    transition: color 0.2s ease-out;
-                }
-            }
-            .item.active {
-                display: block;
-            }
-            
-
-            .toggle {
-                cursor:pointer;
-                order: 1;
-                margin-right: 1.5%;
-                margin-bottom: 1.5%;
-    
-                .bars {
-                    background: white;
-                    display: inline-block;
-                    height: 2px;
-                    position: relative;
-                    transition: background .2s ease-out;
-                    width: 18px;
-
-                }
-                .bars:before,
-                .bars:after {
-                    background: white;
-                    content: '';
-                    display: block;
-                    height: 100%;
-                    position: absolute;
-                    transition: background .2s ease-out;
-                    width: 100%;
-                    
-                }
-                .bars:before {
-                    top: 5px;
-                }
-                .bars:after {
-                    top: -5px;
-                }
-
-            }
-            
-            
-        }
-
-        @include tabletsOnly {
-            .menu {
-                justify-content: center;
-                .logo {
-                    flex: 1;
-                }
-                .item.button {
-                    width: auto;
-                    order: 1;
-                    display: block;
-                }
-                .toggle {
-                    order: 2;
-                }
-            }
-            
-        }
-
-        @include desktopsOnly { 
-            .menu {
-                .item {
-                    display: block;
-                    width: auto;
-                }
-                .logo {
-                    order: 0;
-                }
-                .item {
-                    order: 1;
-                }
-                li {
-                    padding: 15px 10px;
-                }
-                .toggle {
-                    display: none;
-                }
-                .menu li.button {
-                    padding-right: 0;
-                } 
-            }
-
-            
-        }
-
-        
-        .welcomeSection {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            height: 25vh;
-            
-            .test{
-                //background-color: rgba(240,240,240,0.35);
-                //border-radius: 45%;
-                padding: 6%;
-                font-family: Helvetica;
-                text-align: center;
-                color: white;
-                font-size: 20px;
-                
-                h1 {
-                    font-family: MerryChristmasStar;
-                    font-size: 4em;
-                    color: red;
-                }
-
-                p {
-                    margin-top: 5%;
-                }
-
-            }
-            
-        }
-        .arrowDiv {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1.5%;
-            .test2 {
-
-                a {
-                    color: red;
-                }
-                a:hover {
-                    color: white;
-                    transition: color 0.2s ease-in-out;
-                }
-            }
-        }
-
-        /*@include tabletsOnly {
-            .welcomeSection {
-               
-            }
-        }
-
-        @include desktopsOnly {
-            .welcomeSection {
-                
-            }
-        }*/
+        @include arrowDiv;
 
     }
 }
