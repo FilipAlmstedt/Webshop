@@ -3,7 +3,7 @@
   padding: 0; }
 
 #wrapper .welcomeContainer {
-  background-image: url("./images/backgroundwallpaper.jpg");
+  background-image: url("../images/backgroundwallpaper.jpg");
   background-position: center;
   background-size: cover;
   height: 100vh; }
@@ -13,7 +13,27 @@
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
-      list-style: none; }
+      list-style: none;
+      flex-wrap: wrap; }
       #wrapper .welcomeContainer .header nav ul li {
         padding: 1%;
         margin: 1%; }
+
+#wrapper .main {
+  background-color: #cccccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #wrapper .main h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding-top: 2%; }
+  #wrapper .main #productlist li {
+    list-style: none;
+    padding-top: 5%; }
+    #wrapper .main #productlist li img {
+      height: 650px; }
+    #wrapper .main #productlist li p {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 200; }

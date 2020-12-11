@@ -5,7 +5,7 @@
 
 #wrapper {
     .welcomeContainer {
-        background-image: url('./images/backgroundwallpaper.jpg');
+        background-image: url('../images/backgroundwallpaper.jpg');
         background-position: center;
         background-size: cover;
         height: 100vh;
@@ -17,6 +17,7 @@
                     flex-direction: row;
                     justify-content: flex-end;
                     list-style: none;
+                    flex-wrap: wrap;
                     li {
                         padding: 1%;
                         margin: 1%;
@@ -28,17 +29,34 @@
         
     }
     .main {
-        min-height: 100vh;
+        background-color: #cccccc;
         display: flex;
-        background-color: red;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            padding-top: 2%;
+        }
 
         #productlist {
-            display: flex:
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            
 
             li {
+                list-style: none;
+                padding-top: 5%;
+                //margin: 1%;
+
+                img {
+                    height: 650px;
+                }
+
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 200;
+                }
 
             }
         }
