@@ -1,0 +1,33 @@
+@import '../../variables/colors';
+@import '../../variables/flexVariables';
+
+/*Styling av en div som innehåller en välkomstext*/
+@mixin merryChristmasContainer {
+    .welcomeSectionContainer {
+        display: $useFlex;
+        flex-direction: $useFlexDirectionColumn;
+        justify-content: $useCenterForFlex;
+        align-items: $useCenterForFlex;
+
+        height: 25vh;
+        
+        .welcomeSection{
+            padding: 6%;
+            font-family: Helvetica;
+            text-align: center;
+            color: $welcomeContainerTextColor;
+            font-size: 20px;
+            
+            h1 {
+                font-family: MerryChristmasStar;
+                font-size: 4em;
+                color: $welcomeContainerH1Color;
+            }
+
+            p {
+                margin-top: 5%;
+            }
+        }
+        
+    }
+}
