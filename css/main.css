@@ -72,6 +72,27 @@
       transition: all .2s ease; }
     #wrapper .welcomeContainer .menu .item.active {
       display: flex;
+<<<<<<< HEAD
+      flex-direction: row;
+      justify-content: flex-end;
+      list-style: none; }
+      #wrapper .welcomeContainer .header nav ul li {
+        padding: 1%;
+        margin: 1%; }
+
+#wrapper .footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  background-color: #2e4535;
+  color: white;
+  text-align: center; }
+  #wrapper .footer a {
+    color: white;
+    font-size: large;
+    padding: 5px; }
+=======
       flex-direction: column;
       transition: height .2s ease; }
     #wrapper .welcomeContainer .menu .toggle {
@@ -152,3 +173,4 @@
     #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a:hover {
       color: #FBF5E9;
       transition: color 0.2s ease-in-out; }
+>>>>>>> 941941ec4600c52d00ec992c1146fb3bbe8b32ab
