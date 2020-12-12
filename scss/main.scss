@@ -1,30 +1,41 @@
-* {
-    margin: 0;
+@import './mixins';
+@import './variables';
+ 
+* { 
+    box-sizing: border-box;
     padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+@font-face{
+    font-family: MerryChristmasStar;
+    src: url(../css/fonts/MerryChristmasStar.ttf);
 }
 
 #wrapper {
     .welcomeContainer {
-        background-image: url('./images/backgroundwallpaper.jpg');
+
+        /*Basstyling för hela welcomeContainer-div:en*/
+        background-image: url("images/backgroundwallpaper.jpg");
+        height: 100vh;
         background-position: center;
         background-size: cover;
-        height: 100vh;
-        .header {
-            background-color: rgba(240,240,240,0.4);;
-            nav {
-                ul {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: flex-end;
-                    list-style: none;
-                    li {
-                        padding: 1%;
-                        margin: 1%;
-                    }
-                }
 
-            }
-        }
+        font-family:  Helvetica;
+
+        display: $useFlex;
+        flex-direction: $useFlexDirectionColumn;
+        justify-content: $useSpaceBetween;
+        
+        @include menu;
+
+        @include welcomeContainerResponsive;
+        
+        @include merryChristmasContainer;
+            
+        @include arrowDiv;
+
     }
 
     .footer {
