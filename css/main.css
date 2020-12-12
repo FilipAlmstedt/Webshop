@@ -105,23 +105,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px; }
+    padding: 30px; }
     #wrapper .checkoutContainer .checkoutMain .shoppingBasket {
-      margin: 20px 0px 20px;
-      padding: 10px;
+      padding-top: 30px;
       width: 100%; }
       #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv {
         display: flex;
         justify-content: space-between;
         margin: 10px;
-        height: 200px;
-        background-color: #672f2f; }
-        #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .infoDiv {
-          background-color: #535353;
-          width: 70%; }
-        #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .amountDiv {
-          background-color: #939393;
-          width: 30%; }
+        height: 200px; }
+        #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .productImage {
+          height: 200px;
+          width: 150px;
+          background-color: white; }
+        #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .productInfo {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+          width: 20%; }
+        #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .productAmount {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          width: 20%; }
+          #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .productAmount button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: 60px;
+            border-radius: 25px; }
     #wrapper .checkoutContainer .checkoutMain .total {
       margin: auto;
       margin-right: 0;

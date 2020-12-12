@@ -120,11 +120,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px;
+            padding: 30px;
 
             .shoppingBasket {
-                margin: 20px 0px 20px;
-                padding: 10px;
+                padding-top: 30px;
                 width: 100%;
 
                 .productDiv {
@@ -132,16 +131,36 @@
                     justify-content: space-between;
                     margin: 10px;
                     height: 200px;
-                    background-color: rgb(103, 47, 47);
 
-                    .infoDiv {
-                        background-color: rgb(83, 83, 83);
-                        width: 70%;
+                    .productImage {
+                        height: 200px;
+                        width: 150px;
+                        background-color: white;
                     }
 
-                    .amountDiv {
-                        background-color: rgb(147, 147, 147);
-                        width: 30%;
+                    .productInfo {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 100%;
+                        width: 20%;
+                    }
+
+                    .productAmount {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100%;
+                        width: 20%;
+
+                        button {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 30px;
+                            width: 60px;
+                            border-radius: 25px;
+                        }
                     }
                 }
             }
