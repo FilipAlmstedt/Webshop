@@ -152,7 +152,6 @@
     #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a:hover {
       color: #FBF5E9;
       transition: color 0.2s ease-in-out; }
-
 #wrapper .footer {
   display: flex;
   justify-content: space-around;
@@ -165,3 +164,59 @@
     color: white;
     font-size: large;
     padding: 5px; }
+
+#shoppingCartWindow .shoppingCartContainer .shoppingCartTitles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5%;
+  align-items: center; }
+
+#shoppingCartWindow .shoppingCartContainer .shoppingCartItemDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%; }
+  #shoppingCartWindow .shoppingCartContainer .shoppingCartItemDiv .nameAndImageSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 31%; }
+    #shoppingCartWindow .shoppingCartContainer .shoppingCartItemDiv .nameAndImageSection img {
+      width: 45px;
+      height: 70px; }
+  #shoppingCartWindow .shoppingCartContainer .shoppingCartItemDiv .countDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 11%; }
+    #shoppingCartWindow .shoppingCartContainer .shoppingCartItemDiv .countDiv .addOrRemoveIcons {
+      cursor: pointer; }
+  #shoppingCartWindow .shoppingCartContainer .shoppingCartItemDiv .priceDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 20%; }
+    #shoppingCartWindow .shoppingCartContainer .shoppingCartItemDiv .priceDiv .trashicon:hover {
+      color: red;
+      cursor: pointer;
+      transition: color .2s ease-in-out; }
+
+#shoppingCartWindow .shoppingCartContainer .shoppingCartTotalPriceDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+
+#shoppingCartWindow .shoppingCartContainer .shoppingCartButtonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+  margin-bottom: 2%; }
