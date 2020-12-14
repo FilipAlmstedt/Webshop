@@ -14,7 +14,57 @@
 }
 
 #wrapper {
-    .welcomeContainer {
+
+    background-color: #cccccc;
+
+    
+ feature/produktsida
+      
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        margin: 0 auto;
+
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            padding-top: 2%;
+        }
+
+        #productlist {
+            
+            @media screen and (min-width: 768px) {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+    
+            }
+
+            li {
+                list-style: none;
+                padding-top: 5%;
+                
+                @media screen and (min-width: 768px) {
+                   width: 30%; 
+                }
+            
+
+                img {
+                    width: 100%
+                }
+
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 200;
+                }
+
+            }
+=======
 
         /*Basstyling för hela welcomeContainer-div:en*/
         background-image: url("images/backgroundwallpaper.jpg");
@@ -51,6 +101,7 @@
             color: white;
             font-size: large;
             padding: 5px;
+develop
         }
     }
 } 
