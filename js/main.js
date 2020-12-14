@@ -35,7 +35,7 @@ $(function() {
     checkShoppingCart();
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
   
-    $.each(products, (i, product) => {
+    //$.each(products, (i, product) => {
     console.log(product);
 
     let container = $("#productlist");
