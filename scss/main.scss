@@ -38,8 +38,8 @@
         @include arrowDiv;
 
     }
-
-    .footer {
+  
+  .footer {
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -54,4 +54,75 @@
             padding: 5px;
         }
     }
-} 
+
+
+}
+
+#shoppingCartWindow {
+    .shoppingCartContainer {
+        .shoppingCartTitles {
+            display: $useFlex;
+            flex-direction: $useFlexDirectionRow;
+            justify-content: $useSpaceBetween;
+            margin-bottom: 5%;
+            align-items: $useCenterForFlex;
+        }
+        .shoppingCartItemDiv {
+            display: $useFlex;
+            flex-direction: $useFlexDirectionRow;
+            justify-content: $useSpaceBetween;
+            align-items: $useCenterForFlex;
+            margin-top: 2.5%;
+            margin-bottom: 2.5%;
+
+            .nameAndImageSection {
+                display: $useFlex;
+                flex-direction: $useFlexDirectionRow;
+                justify-content: space-evenly;
+                align-items: $useCenterForFlex;
+                width: 31%;
+                img {
+                    width: 45px;
+                    height: 70px;
+                }
+    
+            }
+            .countDiv {
+                display: $useFlex;
+                flex-direction: $useFlexDirectionRow; 
+                justify-content: $useSpaceBetween;
+                width: 11%;
+                .addOrRemoveIcons {
+                    cursor: pointer;
+                }
+            }
+            .priceDiv {
+                display: $useFlex;
+                flex-direction: $useFlexDirectionRow;
+                justify-content: $useSpaceBetween;         
+                width: 20%;
+                .trashicon:hover {
+                    color: red;
+                    cursor: pointer;
+                    transition: color .2s ease-in-out;
+                }
+            }
+        }
+        .shoppingCartTotalPriceDiv {
+            display: $useFlex;
+            flex-direction: $useFlexDirectionRow;
+            justify-content: flex-end;
+            align-items: $useCenterForFlex;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+        .shoppingCartButtonDiv {
+            display: $useFlex;
+            flex-direction: $useFlexDirectionRow;
+            justify-content: $useSpaceBetween;
+            align-items: $useCenterForFlex;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+    }
+}
