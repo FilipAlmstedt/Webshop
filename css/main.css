@@ -19,27 +19,7 @@
 @font-face {
   font-family: MerryChristmasStar;
   src: url(../css/fonts/MerryChristmasStar.ttf); }
-feature/produktsida
-#wrapper {
-  background-color: #cccccc; }
-  #wrapper .welcomeContainer {
-    background-image: url("../images/backgroundwallpaper.jpg");
-    background-position: center;
-    background-size: cover;
-    height: 100vh; }
-    #wrapper .welcomeContainer .header {
-      background-color: rgba(240, 240, 240, 0.4); }
-      #wrapper .welcomeContainer .header nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        list-style: none;
-        flex-wrap: wrap; }
-        #wrapper .welcomeContainer .header nav ul li {
-          padding: 1%;
-          margin: 1%; }
-  #wrapper .main {
-=======
+
 #wrapper .welcomeContainer {
   /*Basstyling för hela welcomeContainer-div:en*/
   background-image: url("images/backgroundwallpaper.jpg");
@@ -92,7 +72,7 @@ feature/produktsida
       transition: all .2s ease; }
     #wrapper .welcomeContainer .menu .item.active {
       display: flex;
- HEAD
+<<<<<<< HEAD
       flex-direction: row;
       justify-content: flex-end;
       list-style: none; }
@@ -165,36 +145,10 @@ feature/produktsida
     #wrapper .welcomeContainer .menu .menu li.button {
       padding-right: 0; } }
   #wrapper .welcomeContainer .welcomeSectionContainer {
-develop
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-feature/produktsida
-    width: 70%;
-    margin: 0 auto; }
-    #wrapper .main h2 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      padding-top: 2%; }
-    @media screen and (min-width: 768px) {
-      #wrapper .main #productlist {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between; } }
-    #wrapper .main #productlist li {
-      list-style: none;
-      padding-top: 5%; }
-      @media screen and (min-width: 768px) {
-        #wrapper .main #productlist li {
-          width: 30%; } }
-      #wrapper .main #productlist li img {
-        width: 100%; }
-      #wrapper .main #productlist li p {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 200; }
-=======
     height: 25vh; }
     #wrapper .welcomeContainer .welcomeSectionContainer .welcomeSection {
       padding: 6%;
@@ -219,5 +173,4 @@ feature/produktsida
     #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a:hover {
       color: #FBF5E9;
       transition: color 0.2s ease-in-out; }
- 941941ec4600c52d00ec992c1146fb3bbe8b32ab
-develop
+>>>>>>> 941941ec4600c52d00ec992c1146fb3bbe8b32ab
