@@ -10,8 +10,8 @@ class Product {
     }
 }
 
-let container = $("<div>");
-container.attr("class", "shoppingCartContainer");
+let shoppingCartContainer = $("<div>");
+shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
 
@@ -30,7 +30,7 @@ $(function() {
 
     modifyShoppingCart();
 
-    container.appendTo($("#shoppingCartWindow"));
+    shoppingCartContainer.appendTo($("#shoppingCartWindow"));
 
     checkShoppingCart();
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
