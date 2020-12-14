@@ -75,6 +75,9 @@
                 flex-direction: $useFlexDirectionRow; 
                 justify-content: $useSpaceBetween;
                 width: 11%;
+                .addOrRemoveIcons {
+                    cursor: pointer;
+                }
             }
             .priceDiv {
                 display: $useFlex;

@@ -17,7 +17,10 @@ let shoppingCart = [];
 
 $(function() {
     let p1 = new Product("elise", "css/images/gran1.png", "Elise", "Toppengran verkligen", 500, 1);
+    let p2 = new Product("jay", "css/images/gran1.png", "Jay", "Fin gran", 300, 1);
     shoppingCart.push(p1);
+    shoppingCart.push(p2);
+    totalPrice += p1.price + p2.price;
 
     $(".toggle").on("click",openMobileNavbar);
 
@@ -98,16 +101,14 @@ function showAndRefreshShoppingCartItems(){
             nameAndImageDiv.appendTo(showItems);
 
             let addOrRemoveSameItem = $("<div>").attr("class", "countDiv");
-            $("<p>").html("-").attr("id","removeSameItem").appendTo(addOrRemoveSameItem);
+            $("<p>").html("-").attr("id","removeSameItem"+item.id).attr("class", "addOrRemoveIcons").appendTo(addOrRemoveSameItem);
             $("<p>").attr("id","itemCount").html(item.inCart).appendTo(addOrRemoveSameItem);
-            $("<p>").html("+").attr("id","addSameItem").appendTo(addOrRemoveSameItem);
+            $("<p>").html("+").attr("id","addSameItem"+item.id).attr("class", "addOrRemoveIcons").appendTo(addOrRemoveSameItem);
             addOrRemoveSameItem.appendTo(showItems);
 
             let showPriceDiv = $("<div>").attr("class", "priceDiv");
             $("<p>").html(item.price + " kr").appendTo(showPriceDiv);
-            /*Addera priset till det totala priset*/ 
-            totalPrice += item.price;
-            $("<a>").attr("class", "trashicon fas fa-trash-alt").attr("id", "removeItemFromShoppingCart").appendTo(showPriceDiv);
+            $("<a>").attr("class", "trashicon fas fa-trash-alt").attr("id", "removeItemFromShoppingCart"+item.id).appendTo(showPriceDiv);
             showPriceDiv.appendTo(showItems);
         showItems.appendTo(container);
 
@@ -125,21 +126,73 @@ function showAndRefreshShoppingCartItems(){
             /* Div med knappar som leder till kassasidan eller att man tömmer varukorgen */
             let buttonDivs = $("<div>").attr("class","shoppingCartButtonDiv");
             $("<a>").attr("href","html/checkout.html").html("<button>Till kassan</button>").appendTo(buttonDivs);
-            $("<button>").html("Töm varukorgen").appendTo(buttonDivs);
+            $("<button>").html("Töm varukorgen").attr("id", "emptyShoppingCart").appendTo(buttonDivs);
             buttonDivs.appendTo(container);
         } else {
             console.log("Continue loop!");
         }
 
     });
+
+    /* Eventlistners för att "saker som man kan trycka på, För att sklija på dem läggs varans id till på elementets klass så man skiljer dem åt */
+    $.each(shoppingCart, (i, item) => {
+        $("#addSameItem"+item.id).on("click",{sameItem: item},addSameItemToCart);
+        $("#removeSameItem"+item.id).on("click",{sameItem: item},removeSameItemToCart);
+        $("#emptyShoppingCart").on("click",emptyShoppingCart);
+        $("#removeItemFromShoppingCart"+item.id).on("click",{removeThisItem: item},removeItem);
+    });
+
+
 }
 
-/* Kollar varukorgslistan. Ifall den är tom skriver rutan ut att varukorgen är tom, annars så anropar den funktionen showShoppingCartItems */
+/* Kollar varukorgslistan. Ifall den är tom skriver rutan ut att varukorgen är tom, annars så anropar den funktionen showAndRefreshShoppingCartItems och skriver ut alla varor i listan */
 function checkShoppingCart(){
     if(shoppingCart.length == 0){
         $("#shoppingCartWindow").html("<p>Din varukorg är just nu tom!</p>");
-        console.log(shoppingCart.length);
+        console.log("Antal varor i varukorgen: ",shoppingCart.length);
     } else {
         showAndRefreshShoppingCartItems();
     }
+}
+
+/* Funktion som adderar samma vara till varukorgen */
+function addSameItemToCart(e){
+    e.data.sameItem.inCart++;
+    totalPrice += e.data.sameItem.price;
+    console.log(e.data.sameItem.price);
+
+    checkShoppingCart();   
+}
+
+/* Funktion som tar bort samma vara i varukorgen */
+function removeSameItemToCart(e){
+    e.data.sameItem.inCart--;
+    totalPrice -= e.data.sameItem.price;
+    if(e.data.sameItem.inCart == 0){
+        shoppingCart.splice(shoppingCart.indexOf(e.data.sameItem),1);
+        checkShoppingCart(); 
+    } else {
+        checkShoppingCart(); 
+    }
+}
+
+/* Tömmer hela varukorgen genom att tömma listan och stämmer det total priset till 0 */
+function emptyShoppingCart(){
+    shoppingCart.splice(0,shoppingCart.length);
+    totalPrice = 0;
+    checkShoppingCart();
+}
+
+/* Ta bort en vara i varukorgen genom att leta upp varan i listan och tar bort dem därifrån */
+function removeItem(e){
+    console.log("You removed: " + e.data.removeThisItem.name, "Total Pris: ", totalPrice);
+    
+    totalPrice -= (e.data.removeThisItem.price*e.data.removeThisItem.inCart);
+    
+    shoppingCart.splice(shoppingCart.indexOf(e.data.removeThisItem),1);
+    
+    console.log(e.data.removeThisItem.price*e.data.removeThisItem.inCart);
+    console.log("Nuvarande totalpris: ",totalPrice);
+    
+    checkShoppingCart();
 }

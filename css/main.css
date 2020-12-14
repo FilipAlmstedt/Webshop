@@ -181,6 +181,8 @@
     flex-direction: row;
     justify-content: space-between;
     width: 11%; }
+    #shoppingCartWindow .shoppingCartContainer .shoppingCartItemDiv .countDiv .addOrRemoveIcons {
+      cursor: pointer; }
   #shoppingCartWindow .shoppingCartContainer .shoppingCartItemDiv .priceDiv {
     display: flex;
     flex-direction: row;
