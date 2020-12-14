@@ -2,38 +2,49 @@
   margin: 0;
   padding: 0; }
 
-#wrapper .welcomeContainer {
-  background-image: url("../images/backgroundwallpaper.jpg");
-  background-position: center;
-  background-size: cover;
-  height: 100vh; }
-  #wrapper .welcomeContainer .header {
-    background-color: rgba(240, 240, 240, 0.4); }
-    #wrapper .welcomeContainer .header nav ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      list-style: none;
-      flex-wrap: wrap; }
-      #wrapper .welcomeContainer .header nav ul li {
-        padding: 1%;
-        margin: 1%; }
-
-#wrapper .main {
-  background-color: #cccccc;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-  #wrapper .main h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    padding-top: 2%; }
-  #wrapper .main #productlist li {
-    list-style: none;
-    padding-top: 5%; }
-    #wrapper .main #productlist li img {
-      height: 650px; }
-    #wrapper .main #productlist li p {
+#wrapper {
+  background-color: #cccccc; }
+  #wrapper .welcomeContainer {
+    background-image: url("../images/backgroundwallpaper.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh; }
+    #wrapper .welcomeContainer .header {
+      background-color: rgba(240, 240, 240, 0.4); }
+      #wrapper .welcomeContainer .header nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        list-style: none;
+        flex-wrap: wrap; }
+        #wrapper .welcomeContainer .header nav ul li {
+          padding: 1%;
+          margin: 1%; }
+  #wrapper .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto; }
+    #wrapper .main h2 {
       font-family: 'Poppins', sans-serif;
-      font-weight: 200; }
+      font-weight: 500;
+      padding-top: 2%; }
+    @media screen and (min-width: 768px) {
+      #wrapper .main #productlist {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between; } }
+    #wrapper .main #productlist li {
+      list-style: none;
+      padding-top: 5%; }
+      @media screen and (min-width: 768px) {
+        #wrapper .main #productlist li {
+          width: 30%; } }
+      #wrapper .main #productlist li img {
+        width: 100%; }
+      #wrapper .main #productlist li p {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 200; }

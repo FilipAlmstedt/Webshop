@@ -4,6 +4,9 @@
 }
 
 #wrapper {
+
+    background-color: #cccccc;
+
     .welcomeContainer {
         background-image: url('../images/backgroundwallpaper.jpg');
         background-position: center;
@@ -29,11 +32,12 @@
         
     }
     .main {
-        background-color: #cccccc;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 70%;
+        margin: 0 auto;
 
 
         h2 {
@@ -44,14 +48,25 @@
 
         #productlist {
             
+            @media screen and (min-width: 768px) {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+    
+            }
 
             li {
                 list-style: none;
                 padding-top: 5%;
-                //margin: 1%;
+                
+                @media screen and (min-width: 768px) {
+                   width: 30%; 
+                }
+            
 
                 img {
-                    height: 650px;
+                    width: 100%
                 }
 
                 p {
