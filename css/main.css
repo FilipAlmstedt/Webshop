@@ -152,6 +152,18 @@
     #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a:hover {
       color: #FBF5E9;
       transition: color 0.2s ease-in-out; }
+#wrapper .footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  background-color: #2e4535;
+  color: white;
+  text-align: center; }
+  #wrapper .footer a {
+    color: white;
+    font-size: large;
+    padding: 5px; }
 
 #shoppingCartWindow .shoppingCartContainer .shoppingCartTitles {
   display: flex;
