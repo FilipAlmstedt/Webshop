@@ -1,36 +1,25 @@
-* {
-    margin: 0;
+@import './mixins';
+@import './variables';
+ 
+* { 
+    box-sizing: border-box;
     padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+@font-face{
+    font-family: MerryChristmasStar;
+    src: url(../css/fonts/MerryChristmasStar.ttf);
 }
 
 #wrapper {
 
     background-color: #cccccc;
 
-    .welcomeContainer {
-        background-image: url('../images/backgroundwallpaper.jpg');
-        background-position: center;
-        background-size: cover;
-        height: 100vh;
-        .header {
-            background-color: rgba(240,240,240,0.4);;
-            nav {
-                ul {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: flex-end;
-                    list-style: none;
-                    flex-wrap: wrap;
-                    li {
-                        padding: 1%;
-                        margin: 1%;
-                    }
-                }
-
-            }
-        }
-        
-    }
+    
+ feature/produktsida
+      
     .main {
         display: flex;
         flex-direction: column;
@@ -75,6 +64,44 @@
                 }
 
             }
+=======
+
+        /*Basstyling för hela welcomeContainer-div:en*/
+        background-image: url("images/backgroundwallpaper.jpg");
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+
+        font-family:  Helvetica;
+
+        display: $useFlex;
+        flex-direction: $useFlexDirectionColumn;
+        justify-content: $useSpaceBetween;
+        
+        @include menu;
+
+        @include welcomeContainerResponsive;
+        
+        @include merryChristmasContainer;
+            
+        @include arrowDiv;
+
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 10vh;
+        background-color: rgb(46, 69, 53);
+        color: white;
+        text-align: center;
+
+        a {
+            color: white;
+            font-size: large;
+            padding: 5px;
+develop
         }
     }
-}
+} 
