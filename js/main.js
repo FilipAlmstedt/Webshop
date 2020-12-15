@@ -17,15 +17,15 @@ let shoppingCart = [];
 
 $(function() {
 
-    let p1 = new Product("elise", '../images/gran2.png', "Elise", "Toppengran verkligen", 500, 1);
-    let p2 = new Product("kristoffer", '../images/gran6.png', "Kristoffer", "Toppengran verkligen", 150, 1);
-    let p3 = new Product("ivan", '../images/gran3.png', "Ivan", "Toppengran verkligen", 650, 1);
-    let p4 = new Product("lydia", '../images/gran5.png', "Lydia", "Toppengran verkligen", 350, 1);
-    let p5 = new Product("vera", '../images/gran1.jpg', "Vera", "Toppengran verkligen", 200, 1);
-    let p6 = new Product("jan", '../images/gran4.png', "Jan", "Toppengran verkligen", 800, 1);
+    let p1 = new Product("elise", 'css/images/gran2.png', "Elise", "Toppengran verkligen", 500, 1);
+    let p2 = new Product("kristoffer", 'css/images/gran6.png', "Kristoffer", "Toppengran verkligen", 150, 1);
+    let p3 = new Product("ivan", 'css/images/gran3.png', "Ivan", "Toppengran verkligen", 650, 1);
+    let p4 = new Product("lydia", 'css/images/gran5.png', "Lydia", "Toppengran verkligen", 350, 1);
+    let p5 = new Product("vera", 'css/images/gran1.jpg', "Vera", "Toppengran verkligen", 200, 1);
+    let p6 = new Product("jan", 'css/images/gran4.png', "Jan", "Toppengran verkligen", 800, 1);
 
     let products = [p1, p2, p3, p4, p5, p6];
-    shoppingCart.push(p3);
+    //shoppingCart.push(p3); totalPrice += p3.price;
 
     $(".toggle").on("click",openMobileNavbar);
 
@@ -82,11 +82,11 @@ function modifyShoppingCart(){
             duration: 1000
         },
         position: {
-            my: "right top+30%",
+            my: "right top+25%",
             at: "right top",
             of: "#welcomeContainer"
         },
-        minWidth: 400,
+        minWidth: 350,
         minHeight: 100,
         title: "Varukorg",
         modal: true,
