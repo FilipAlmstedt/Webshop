@@ -17,14 +17,35 @@ let shoppingCart = [];
 
 $(function() {
 
-    let p1 = new Product("elise", '../images/gran2.png', "Elise", "Toppengran verkligen", 500, 1);
-    let p2 = new Product("kristoffer", '../images/gran6.png', "Kristoffer", "Toppengran verkligen", 150, 1);
-    let p3 = new Product("ivan", '../images/gran3.png', "Ivan", "Toppengran verkligen", 650, 1);
-    let p4 = new Product("lydia", '../images/gran5.png', "Lydia", "Toppengran verkligen", 350, 1);
-    let p5 = new Product("vera", '../images/gran1.jpg', "Vera", "Toppengran verkligen", 200, 1);
-    let p6 = new Product("jan", '../images/gran4.png', "Jan", "Toppengran verkligen", 800, 1);
+    let p1 = new Product("elise", '../images/gran2.png', "Elise", 200, 500, 1);
+    let p2 = new Product("kristoffer", '../images/gran6.png', "Kristoffer", 100, 150, 1);
+    let p3 = new Product("ivan", '../images/gran3.png', "Ivan", 250, 650, 1);
+    let p4 = new Product("lydia", '../images/gran5.png', "Lydia", 70, 350, 1);
+    let p5 = new Product("vera", '../images/gran1.jpg', "Vera", 50, 200, 1);
+    let p6 = new Product("jan", '../images/gran4.png', "Jan", 300, 800, 1);
 
     let products = [p1, p2, p3, p4, p5, p6];
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+    for (let i = 0; i < products.length; i++) {
+
+        let productDiv = $('<div>').addClass('productDiv').appendTo($('.shoppingCart'));
+        let productImage = $('<img>').addClass('productImageCheckout').attr('src', products[i].image).appendTo(productDiv);        
+        let productInfo = $('<div>').addClass('productInfo').appendTo(productDiv);        
+        let productAmount = $('<div>').addClass('productAmount').appendTo(productDiv);        
+
+        // add product info - name, height, price
+        $('<p>').addClass('productName').html(products[i].name).appendTo(productInfo);                
+        $('<p>').addClass('productHeight').html(products[i].height + ' cm').appendTo(productInfo);                
+        $('<p>').addClass('productPrice').html(products[i].price + ' SEK').appendTo(productInfo);   
+        
+        $('<button>').addClass('productButton').html('knapp').appendTo(productAmount);   
+
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
     $(".toggle").on("click",openMobileNavbar);
 
@@ -50,7 +71,6 @@ $(function() {
 
     listitem.appendTo(container);
     container.appendTo($(".main"));
-    
 });
 
 /*Aktiverar klassen active i css som gör att navbar visas vertikalt i mobilen*/ 

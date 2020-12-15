@@ -106,31 +106,31 @@
     flex-direction: column;
     align-items: center;
     padding: 30px; }
-    #wrapper .checkoutContainer .checkoutMain .shoppingBasket {
+    #wrapper .checkoutContainer .checkoutMain .shoppingCart {
       padding-top: 30px;
       width: 100%; }
-      #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv {
+      #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv {
         display: flex;
         justify-content: space-between;
         margin: 10px;
         height: 200px; }
-        #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .productImage {
+        #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .productImageCheckout {
           height: 200px;
           width: 150px;
           background-color: white; }
-        #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .productInfo {
+        #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .productInfo {
           display: flex;
           flex-direction: column;
           justify-content: center;
           height: 100%;
           width: 20%; }
-        #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .productAmount {
+        #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .productAmount {
           display: flex;
           justify-content: center;
           align-items: center;
           height: 100%;
           width: 20%; }
-          #wrapper .checkoutContainer .checkoutMain .shoppingBasket .productDiv .productAmount button {
+          #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .productAmount button {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -344,10 +344,7 @@
     #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a:hover {
       color: #FBF5E9;
       transition: color 0.2s ease-in-out; }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8de6eeceb27d83e5d001596dd2ef6cf00bb33b53
 #wrapper .footer {
   display: flex;
   justify-content: space-around;
@@ -360,8 +357,6 @@
     color: white;
     font-size: large;
     padding: 5px; }
-<<<<<<< HEAD
-=======
 
 #shoppingCartWindow .shoppingCartContainer .shoppingCartTitles {
   display: flex;
@@ -418,4 +413,3 @@
   align-items: center;
   margin-top: 2%;
   margin-bottom: 2%; }
->>>>>>> 8de6eeceb27d83e5d001596dd2ef6cf00bb33b53
