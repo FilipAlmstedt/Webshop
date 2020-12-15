@@ -25,6 +25,7 @@ $(function() {
     let p6 = new Product("jan", '../images/gran4.png', "Jan", "Toppengran verkligen", 800, 1);
 
     let products = [p1, p2, p3, p4, p5, p6];
+    shoppingCart.push(p3);
 
     $(".toggle").on("click",openMobileNavbar);
 
@@ -81,9 +82,9 @@ function modifyShoppingCart(){
             duration: 1000
         },
         position: {
-            my: "right top",
-            at: "center",
-            of: "#welcomeSectionContainer"
+            my: "right top+30%",
+            at: "right top",
+            of: "#welcomeContainer"
         },
         minWidth: 400,
         minHeight: 100,
@@ -97,7 +98,7 @@ function modifyShoppingCart(){
 /* Ifall listan innehåller någon vara så skapas element och visas på skärmen */
 function showAndRefreshShoppingCartItems(){
     /* Rensar containern varje gång funktionen anropas */
-    container.html("");
+    shoppingCartContainer.html("");
 
     $.each(shoppingCart, (i, item) => {
         /* Kollar bara så att denna del skrivs ut i början när första produkten i listan körs. Annars skulle den skrivas ut igen */
@@ -107,10 +108,10 @@ function showAndRefreshShoppingCartItems(){
             $("<p>").html("Produkt").appendTo(titleDiv);
             $("<p>").html("Antal").appendTo(titleDiv);
             $("<p>").html("Pris").appendTo(titleDiv); 
-            titleDiv.appendTo(container);
+            titleDiv.appendTo(shoppingCartContainer);
 
             /* Horisontellt streck för att skilja sektioner */
-            $("<hr>").appendTo(container);
+            $("<hr>").appendTo(shoppingCartContainer);
         }
 
         /* Div som visar produkten som ligger i varukorgen */
@@ -131,24 +132,24 @@ function showAndRefreshShoppingCartItems(){
             $("<p>").html(item.price + " kr").appendTo(showPriceDiv);
             $("<a>").attr("class", "trashicon fas fa-trash-alt").attr("id", "removeItemFromShoppingCart"+item.id).appendTo(showPriceDiv);
             showPriceDiv.appendTo(showItems);
-        showItems.appendTo(container);
+        showItems.appendTo(shoppingCartContainer);
 
-        $("<hr>").appendTo(container);
+        $("<hr>").appendTo(shoppingCartContainer);
 
         /* Dessa div:ar ska endast visas när alla produkter har gått igenom loopen. if-satsen kollar när sista produkten har kommit, då skrivas dessa div:ar ut */
         if(shoppingCart.length-1 == i){
             /* Div som visar det totala priset */
             let totalPriceDiv = $("<div>").attr("class","shoppingCartTotalPriceDiv");
             $("<h4>").html("Total Summa: " + totalPrice + " kr").appendTo(totalPriceDiv);
-            totalPriceDiv.appendTo(container);
+            totalPriceDiv.appendTo(shoppingCartContainer);
 
-            $("<hr>").appendTo(container);
+            $("<hr>").appendTo(shoppingCartContainer);
 
             /* Div med knappar som leder till kassasidan eller att man tömmer varukorgen */
             let buttonDivs = $("<div>").attr("class","shoppingCartButtonDiv");
             $("<a>").attr("href","html/checkout.html").html("<button>Till kassan</button>").appendTo(buttonDivs);
             $("<button>").html("Töm varukorgen").attr("id", "emptyShoppingCart").appendTo(buttonDivs);
-            buttonDivs.appendTo(container);
+            buttonDivs.appendTo(shoppingCartContainer);
         } else {
             console.log("Continue loop!");
         }
