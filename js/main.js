@@ -25,7 +25,7 @@ $(function() {
     let p6 = new Product("jan", 'css/images/gran4.png', "Jan", "Toppengran verkligen", 800, 1);
 
     let products = [p1, p2, p3, p4, p5, p6];
-    //shoppingCart.push(p3); totalPrice += p3.price;
+    shoppingCart.push(p3); totalPrice += p3.price;
 
     $(".toggle").on("click",openMobileNavbar);
 
@@ -147,8 +147,8 @@ function showAndRefreshShoppingCartItems(){
 
             /* Div med knappar som leder till kassasidan eller att man tömmer varukorgen */
             let buttonDivs = $("<div>").attr("class","shoppingCartButtonDiv");
-            $("<a>").attr("href","html/checkout.html").html("<button>Till kassan</button>").appendTo(buttonDivs);
-            $("<button>").html("Töm varukorgen").attr("id", "emptyShoppingCart").appendTo(buttonDivs);
+            $("<button>").attr("class","shoppingCartButtons").html("<a href='html/checkout.html' id='goToCheckout'>Till kassan</a>").appendTo(buttonDivs);
+            $("<button>").html("Töm varukorgen").attr("id", "emptyShoppingCart").attr("class","shoppingCartButtons").appendTo(buttonDivs);
             buttonDivs.appendTo(shoppingCartContainer);
         } else {
             console.log("Continue loop!");

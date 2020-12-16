@@ -1,14 +1,15 @@
 @charset "UTF-8";
 /*Mixins för responsivteten på sidan*/
-/*Allt inom min navbar*/
-/*Variabler som används till flexade element*/
 /*Variabler som används till flexade element*/
 /*Styling av en div som innehåller en välkomstext*/
 /*Variabler som används till flexade element*/
 /*Div som innehåller en pil som länkar till alla produkter som ligger under pilen.*/
+/*Allt inom min navbar*/
+/*Variabler som används till flexade element*/
 /*Mixins för responsivteten på sidan*/
 /*Variabler som används till flexade element*/
 /*Mixin som hantera allt responsivt inom welcomeContainer-div:en*/
+/*Variabler som används till flexade element*/
 /*Variabler som används till flexade element*/
 * {
   box-sizing: border-box;
@@ -52,13 +53,16 @@
         text-decoration: none; }
       #wrapper .welcomeContainer .menu li a:hover {
         text-decoration: underline; }
-    #wrapper .welcomeContainer .menu .logo a:hover {
-      text-decoration: none;
-      color: red;
-      transition: color 0.2s ease-out; }
-    #wrapper .welcomeContainer .menu .logo a {
-      font-size: 25px;
-      color: #165B33; }
+    #wrapper .welcomeContainer .menu .logo {
+      font-family: larger Arno Pro, Tribun ADF Std, serif;
+      font-style: italic; }
+      #wrapper .welcomeContainer .menu .logo a:hover {
+        text-decoration: none;
+        color: red;
+        transition: color 0.2s ease-out; }
+      #wrapper .welcomeContainer .menu .logo a {
+        font-size: 25px;
+        color: #165B33; }
     #wrapper .welcomeContainer .menu .item {
       width: 100%;
       text-align: center;
@@ -152,6 +156,7 @@
     #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a:hover {
       color: #FBF5E9;
       transition: color 0.2s ease-in-out; }
+
 #wrapper .footer {
   display: flex;
   justify-content: space-around;
@@ -165,6 +170,18 @@
     font-size: large;
     padding: 5px; }
 
+/*Klassen som finns i JQuerys egna bibliotek. La till custom styling*/
+.ui-dialog {
+  background-color: #FFFAFA;
+  font-family: larger Arno Pro, Tribun ADF Std, serif;
+  font-style: italic; }
+
+.ui-widget-header {
+  background-color: #c02204;
+  color: #FFFAFA;
+  font-size: 25px; }
+
+/*Egna div:en som skapas inom dialogrutan*/
 #shoppingCartWindow .shoppingCartContainer .shoppingCartTitles {
   display: flex;
   flex-direction: row;
@@ -220,3 +237,24 @@
   align-items: center;
   margin-top: 2%;
   margin-bottom: 2%; }
+  #shoppingCartWindow .shoppingCartContainer .shoppingCartButtonDiv .shoppingCartButtons {
+    width: 49%;
+    height: 20%;
+    text-align: center;
+    padding: 5%;
+    background-color: #165B33;
+    color: #FBF5E9;
+    cursor: pointer;
+    border: none;
+    font-family: larger Arno Pro, Tribun ADF Std, serif;
+    font-style: italic;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  #shoppingCartWindow .shoppingCartContainer .shoppingCartButtonDiv .shoppingCartButtons:hover {
+    background-color: #BB2528;
+    transition: background-color 0.4s ease-in-out;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); }
+  #shoppingCartWindow .shoppingCartContainer .shoppingCartButtonDiv #goToCheckout {
+    text-decoration: none;
+    color: #FBF5E9;
+    border: none; }

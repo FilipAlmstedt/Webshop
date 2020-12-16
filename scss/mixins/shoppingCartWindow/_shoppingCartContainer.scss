@@ -1,0 +1,114 @@
+@import '../../variables';
+
+@mixin shoppingCartWindow {
+    /*Klassen som finns i JQuerys egna bibliotek. La till custom styling*/
+    .ui-dialog {
+        background-color: #FFFAFA;
+        font-family: larger Arno Pro, Tribun ADF Std, serif;;
+        font-style: italic;
+    }
+    .ui-widget-header {
+        background-color: #c02204;
+        color: #FFFAFA;
+        font-size: 25px;
+    }
+
+    /*Egna div:en som skapas inom dialogrutan*/
+    #shoppingCartWindow {
+        .shoppingCartContainer {
+            .shoppingCartTitles {
+                display: $useFlex;
+                flex-direction: $useFlexDirectionRow;
+                justify-content: $useSpaceBetween;
+                margin-bottom: 5%;
+                align-items: $useCenterForFlex;
+            }
+            .shoppingCartItemDiv {
+                display: $useFlex;
+                flex-direction: $useFlexDirectionRow;
+                justify-content: $useSpaceBetween;
+                align-items: $useCenterForFlex;
+                margin-top: 2.5%;
+                margin-bottom: 2.5%;
+
+                .nameAndImageSection {
+                    display: $useFlex;
+                    flex-direction: $useFlexDirectionRow;
+                    justify-content: space-evenly;
+                    align-items: $useCenterForFlex;
+                    width: 31%;
+                    img {
+                        width: 45px;
+                        height: 70px;
+                    }
+        
+                }
+                .countDiv {
+                    display: $useFlex;
+                    flex-direction: $useFlexDirectionRow; 
+                    justify-content: $useSpaceBetween;
+                    width: 11%;
+                    .addOrRemoveIcons {
+                        cursor: pointer;
+                    }
+                }
+                .priceDiv {
+                    display: $useFlex;
+                    flex-direction: $useFlexDirectionRow;
+                    justify-content: $useSpaceBetween;         
+                    width: 20%;
+                    .trashicon:hover {
+                        color: red;
+                        cursor: pointer;
+                        transition: color .2s ease-in-out;
+                    }
+                }
+            }
+            .shoppingCartTotalPriceDiv {
+                display: $useFlex;
+                flex-direction: $useFlexDirectionRow;
+                justify-content: flex-end;
+                align-items: $useCenterForFlex;
+                margin-top: 5%;
+                margin-bottom: 5%;
+            }
+            .shoppingCartButtonDiv {
+                display: $useFlex;
+                flex-direction: $useFlexDirectionRow;
+                justify-content: $useSpaceBetween;
+                align-items: $useCenterForFlex;
+                margin-top: 2%;
+                margin-bottom: 2%;
+
+                .shoppingCartButtons {
+                    width: 49%;
+                    height: 20%;
+                    text-align: center;
+                    padding: 5%;
+                    background-color: #165B33;
+                    color: $welcomeContainerTextColor;
+                    cursor: pointer;
+                    border: none;
+                    font-family: larger Arno Pro, Tribun ADF Std, serif;;
+                    font-style: italic;
+                    border-radius: 50%;
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                }
+
+                .shoppingCartButtons:hover {
+                    background-color: #BB2528;
+                    transition: background-color 0.4s ease-in-out;
+                    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+                }
+
+                #goToCheckout {
+                    text-decoration: none;
+                    color: $welcomeContainerTextColor;
+                    border: none
+                }
+
+            }
+        }
+    }
+
+}
