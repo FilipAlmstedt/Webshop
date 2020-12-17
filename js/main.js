@@ -14,9 +14,15 @@ let shoppingCartContainer = $("<div>");
 shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
-let shoppingCartClosed = true;
+
+$('.totalPriceP').html(totalPrice);
+
+let tempShoppingCart = [];
+let tempTotalPrice = 0;
+
 
 $(function() {
+
 
     let p1 = new Product("elise", 'css/images/gran2.png', "Elise", "Toppengran verkligen", 500, 1);
     let p2 = new Product("kristoffer", 'css/images/gran6.png', "Kristoffer", "Toppengran verkligen", 150, 1);
@@ -26,13 +32,15 @@ $(function() {
     let p6 = new Product("jan", 'css/images/gran4.png', "Jan", "Toppengran verkligen", 800, 1);
 
     let products = [p1, p2, p3, p4, p5, p6];
-    shoppingCart.push(p3); totalPrice += p3.price;
+
+    tempShoppingCart.push(p1, p4, p6);
 
     $(".toggle").on("click",openMobileNavbar);
 
 
     modifyShoppingCart();
         
+
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
 
     checkShoppingCart();
@@ -41,10 +49,11 @@ $(function() {
     
     console.log(product);
 
-    let container = $("#productlist");
-    let listitem = $("<li>")
 
-    
+    let container = $("#productlist");
+    let listitem = $("<li>");
+
+
     $("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
     $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
     $("<p>").html(product.name).addClass("name").appendTo(listitem);
@@ -53,8 +62,43 @@ $(function() {
 
     listitem.appendTo(container);
     container.appendTo($(".main"));
-    
+
+    createCheckoutHtml();
 });
+
+function createCheckoutHtml () {
+    $('.shoppingCart').html('');
+
+    for (let i = 0; i < tempShoppingCart.length; i++) {
+
+        // get container - add divs
+        let productDiv = $('<div>').addClass('productDiv').appendTo($('.shoppingCart'));
+        let productImage = $('<img>').addClass('productImageCheckout').attr('src', tempShoppingCart[i].image).appendTo(productDiv);        
+        let productInfo = $('<div>').addClass('productInfo').appendTo(productDiv);        
+        let productAmount = $('<div>').addClass('productAmount').appendTo(productDiv);        
+
+        // add product info - name, height, price
+        $('<p>').addClass('productName').html(tempShoppingCart[i].name).appendTo(productInfo);                
+        $('<p>').addClass('productHeight').html(tempShoppingCart[i].height + ' cm').appendTo(productInfo);                
+        $('<p>').addClass('productPrice').html(tempShoppingCart[i].price + ' SEK').appendTo(productInfo);   
+        
+        // add buttons
+        $('<button>').addClass('productButton').html('-').appendTo(productAmount).on('click', function (){
+            tempShoppingCart[i].inCart--
+            if (tempShoppingCart[i].inCart <= 0) {
+                tempShoppingCart.splice(i, 1);
+            }
+            createCheckoutHtml();
+        });
+
+        $('<p>').html(tempShoppingCart[i].inCart).appendTo(productAmount);
+
+        $('<button>').addClass('productButton').html('+').appendTo(productAmount).on('click', function (){
+            tempShoppingCart[i].inCart++
+            createCheckoutHtml();
+        });
+    }
+}
 
 /*Aktiverar klassen active i css som gör att navbar visas vertikalt i mobilen*/ 
 function openMobileNavbar(){
