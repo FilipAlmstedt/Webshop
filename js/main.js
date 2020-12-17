@@ -14,6 +14,7 @@ let shoppingCartContainer = $("<div>");
 shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
+let shoppingCartClosed = true;
 
 $(function() {
 
@@ -29,28 +30,29 @@ $(function() {
 
     $(".toggle").on("click",openMobileNavbar);
 
-    modifyShoppingCart();
 
+    modifyShoppingCart();
+        
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
 
     checkShoppingCart();
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
   
     
-    //console.log(product);
+    console.log(product);
 
-    //let container = $("#productlist");
-    //let listitem = $("<li>")
+    let container = $("#productlist");
+    let listitem = $("<li>")
 
     
-   /*$("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
-   $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
+    $("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
+    $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
     $("<p>").html(product.name).addClass("name").appendTo(listitem);
     $("<div>").addClass("fas fa-shopping-cart").appendTo(listitem);
 
 
     listitem.appendTo(container);
-    container.appendTo($(".main"));*/
+    container.appendTo($(".main"));
     
 });
 
@@ -71,6 +73,11 @@ function openShoppingCartWindow(){
 
 /* Positionerar och anger hur stor den ska vara */
 function modifyShoppingCart(){
+    /*Gör fönstret responsivt, ger ut hela window-längden och uppdaterar den ifall den minskar*/ 
+    $(window).resize(function() {
+        getResponsivePosition($(window).width());
+    });
+
     $("#shoppingCartWindow").dialog({
         autoOpen: false,
         show: {
@@ -81,19 +88,39 @@ function modifyShoppingCart(){
             effect: "blind",
             duration: 1000
         },
-        position: {
-            my: "right top+25%",
-            at: "right top",
-            of: "#welcomeContainer"
-        },
         minWidth: 350,
         minHeight: 100,
         title: "Varukorg",
         modal: true,
-        resizable: false
-
+        resizable: false,
     });
+
+    /* Default när man öppnar webbsidan */
+    getResponsivePosition($(window).width());
 }
+
+/* Kollar vilken längd hemsidafönstret har just nu. Ifall den är mindre än 769px så anpassar sig varukorgsfönstret för mobil/tablets istället */
+function getResponsivePosition(windowWidth){
+    console.log($(window).width());
+    if(windowWidth > 769) {
+        return $("#shoppingCartWindow").dialog({
+            position: {
+                my: "right top+20%",
+                at: "right top",
+                of: "#welcomeContainer"
+            }
+        });
+    } else {
+        return $("#shoppingCartWindow").dialog({
+            position: {
+                my: "center top+20%",
+                at: "center top",
+                of: "#welcomeContainer"
+            }
+        });
+    }
+}
+
 
 /* Ifall listan innehåller någon vara så skapas element och visas på skärmen */
 function showAndRefreshShoppingCartItems(){
@@ -163,8 +190,6 @@ function showAndRefreshShoppingCartItems(){
         $("#emptyShoppingCart").on("click",emptyShoppingCart);
         $("#removeItemFromShoppingCart"+item.id).on("click",{removeThisItem: item},removeItem);
     });
-
-
 }
 
 /* Kollar varukorgslistan. Ifall den är tom skriver rutan ut att varukorgen är tom, annars så anropar den funktionen showAndRefreshShoppingCartItems och skriver ut alla varor i listan */
@@ -180,7 +205,7 @@ function checkShoppingCart(){
 /* Funktion som adderar samma vara till varukorgen */
 function addSameItemToCart(e){
     e.data.sameItem.inCart++;
-    totalPrice += e.data.sameItem.price;
+    totalPrice += e.data.sameItem.price; 
     console.log(e.data.sameItem.price);
 
     checkShoppingCart();   
@@ -213,8 +238,9 @@ function removeItem(e){
 
     shoppingCart.splice(shoppingCart.indexOf(e.data.removeThisItem),1);
 
-    console.log(e.data.removeThisItem.price*e.data.removeThisItem.inCart);
     console.log("Nuvarande totalpris: ",totalPrice);
 
     checkShoppingCart();
 }
+
+

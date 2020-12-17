@@ -29,7 +29,7 @@
                 justify-content: $useSpaceBetween;
                 align-items: $useCenterForFlex;
                 margin-top: 2.5%;
-                margin-bottom: 2.5%;
+                margin-bottom: 2.5%; 
 
                 .nameAndImageSection {
                     display: $useFlex;
@@ -41,7 +41,6 @@
                         width: 45px;
                         height: 70px;
                     }
-        
                 }
                 .countDiv {
                     display: $useFlex;
@@ -96,7 +95,7 @@
                 }
 
                 .shoppingCartButtons:hover {
-                    background-color: #BB2528;
+                    background-color: #BB2528; 
                     transition: background-color 0.4s ease-in-out;
                     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
                 }
