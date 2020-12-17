@@ -122,7 +122,8 @@
             padding: 30px;
 
             h1 {
-                color: rgb(46, 69, 53);            }
+                color: rgb(46, 69, 53);            
+            }
 
             .shoppingCart {
                 padding-top: 30px;
@@ -168,6 +169,12 @@
                             border-radius: 25px;
                         }
                     }
+                }
+
+                .emptyCheckoutCart {
+                    display: flex;
+                    justify-content: center;
+                    color: white;
                 }
             }
 

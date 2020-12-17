@@ -141,6 +141,10 @@
             height: 20px;
             width: 20px;
             border-radius: 25px; }
+      #wrapper .checkoutContainer .checkoutMain .shoppingCart .emptyCheckoutCart {
+        display: flex;
+        justify-content: center;
+        color: white; }
     #wrapper .checkoutContainer .checkoutMain .totalDiv {
       margin: auto;
       margin-right: 0;
