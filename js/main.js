@@ -1,7 +1,7 @@
 class Product {
 
-    constructor(id, image, name, height, price, inCart) {
-        this.id = id;
+    constructor(image, name, height, price, inCart) {
+        this.id = x++;
         this.image = image;
         this.name = name;
         this.height = height;
@@ -10,30 +10,25 @@ class Product {
     }
 }
 
+let x = 1;
 let shoppingCartContainer = $("<div>");
 shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
 
-$('.totalPriceP').html(totalPrice);
-
+// temporary shopping cart while developing
 let tempShoppingCart = [];
-let tempTotalPrice = 0;
-
 
 $(function() {
 
-
-    let p1 = new Product("elise", 'css/images/gran2.png', "Elise", "Toppengran verkligen", 500, 1);
-    let p2 = new Product("kristoffer", 'css/images/gran6.png', "Kristoffer", "Toppengran verkligen", 150, 1);
-    let p3 = new Product("ivan", 'css/images/gran3.png', "Ivan", "Toppengran verkligen", 650, 1);
-    let p4 = new Product("lydia", 'css/images/gran5.png', "Lydia", "Toppengran verkligen", 350, 1);
-    let p5 = new Product("vera", 'css/images/gran1.jpg', "Vera", "Toppengran verkligen", 200, 1);
-    let p6 = new Product("jan", 'css/images/gran4.png', "Jan", "Toppengran verkligen", 800, 1);
+    let p1 = new Product('../css/images/gran1.png', "Elise", 200, 500, 1);
+    let p2 = new Product('../css/images/gran1.png', "Kristoffer", 100, 150, 1);
+    let p3 = new Product('../css/images/gran1.png', "Ivan", 250, 650, 1);
+    let p4 = new Product('../css/images/gran1.png', "Lydia", 70, 350, 1);
+    let p5 = new Product('../css/images/gran1.png', "Vera", 50, 200, 1);
+    let p6 = new Product('../css/images/gran1.png', "Jan", 300, 800, 1);
 
     let products = [p1, p2, p3, p4, p5, p6];
-
-    tempShoppingCart.push(p1, p4, p6);
 
     $(".toggle").on("click",openMobileNavbar);
 
@@ -45,10 +40,6 @@ $(function() {
 
     checkShoppingCart();
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
-  
-    
-    console.log(product);
-
 
     let container = $("#productlist");
     let listitem = $("<li>");
@@ -59,10 +50,17 @@ $(function() {
     $("<p>").html(product.name).addClass("name").appendTo(listitem);
     $("<div>").addClass("fas fa-shopping-cart").appendTo(listitem);
 
-
     listitem.appendTo(container);
     container.appendTo($(".main"));
 
+    // add products to temporary shopping cart
+    tempShoppingCart.push(p1, p2, p3);
+
+    //add total price of temporary shopping cart
+    for (let i = 0; i < tempShoppingCart.length; i++) {
+        totalPrice += tempShoppingCart[i].price;        
+    }
+    
     createCheckoutHtml();
 });
 
@@ -75,30 +73,50 @@ function createCheckoutHtml () {
         let productDiv = $('<div>').addClass('productDiv').appendTo($('.shoppingCart'));
         let productImage = $('<img>').addClass('productImageCheckout').attr('src', tempShoppingCart[i].image).appendTo(productDiv);        
         let productInfo = $('<div>').addClass('productInfo').appendTo(productDiv);        
-        let productAmount = $('<div>').addClass('productAmount').appendTo(productDiv);        
+        let productAmount = $('<div>').addClass('productAmount').appendTo(productDiv);  
 
         // add product info - name, height, price
         $('<p>').addClass('productName').html(tempShoppingCart[i].name).appendTo(productInfo);                
         $('<p>').addClass('productHeight').html(tempShoppingCart[i].height + ' cm').appendTo(productInfo);                
-        $('<p>').addClass('productPrice').html(tempShoppingCart[i].price + ' SEK').appendTo(productInfo);   
-        
-        // add buttons
-        $('<button>').addClass('productButton').html('-').appendTo(productAmount).on('click', function (){
-            tempShoppingCart[i].inCart--
-            if (tempShoppingCart[i].inCart <= 0) {
-                tempShoppingCart.splice(i, 1);
-            }
-            createCheckoutHtml();
-        });
-
+        $('<p>').addClass('productPrice').html(tempShoppingCart[i].price + ' SEK').appendTo(productInfo);  
+                
+        // add buttons + amount p tag
+        $('<button>').addClass('productButton').html('-').appendTo(productAmount).on('click', ()=> {subtractProductAmount(tempShoppingCart[i])});
         $('<p>').html(tempShoppingCart[i].inCart).appendTo(productAmount);
+        $('<button>').addClass('productButton').html('+').appendTo(productAmount).on('click', ()=> {addProductAmount(tempShoppingCart[i])});
+    }
 
-        $('<button>').addClass('productButton').html('+').appendTo(productAmount).on('click', function (){
-            tempShoppingCart[i].inCart++
-            createCheckoutHtml();
-        });
+    $('.totalPriceP').html("Totalt: " + totalPrice + " SEK");
+
+    // h2 if cart is empty
+    if (tempShoppingCart.length == 0) {
+        $('<h2>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
     }
 }
+
+// subtract products
+function subtractProductAmount (product){
+    product.inCart--
+    totalPrice -= product.price;
+
+    // splice product if amount = 0
+    if (product.inCart === 0) {
+        for (let i = 0; i < tempShoppingCart.length; i++) {
+            if (tempShoppingCart[i].id == product.id) {
+                tempShoppingCart.splice(i, 1);
+            }
+        }
+    };
+
+    createCheckoutHtml(); 
+};
+
+// add products
+function addProductAmount (product){
+    product.inCart++
+    totalPrice += product.price;
+    createCheckoutHtml();
+};
 
 /*Aktiverar klassen active i css som gör att navbar visas vertikalt i mobilen*/ 
 function openMobileNavbar(){
