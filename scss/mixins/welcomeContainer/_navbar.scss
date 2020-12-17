@@ -17,7 +17,6 @@
             padding: 15px 5px;
             white-space: nowrap;
         
-
             a {
                 color: $navBarColorLinks;
                 text-decoration: none;
@@ -28,13 +27,15 @@
         }   
 
         /*headern för loggan*/
-        .logo { 
+        .logo {
+            font-family: larger Arno Pro, Tribun ADF Std, serif;;
+            font-style: italic; 
             a:hover {
                 text-decoration: none;
                 color: $navbarHoverColor;
                 transition: color 0.2s ease-out;
             }
-            a {
+            a {  
                 font-size: 25px;
                 color: #165B33;
             }
