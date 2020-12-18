@@ -1,6 +1,5 @@
 @import './mixins';
 @import './variables';
-@import 'checkout';
  
 * { 
     box-sizing: border-box;
@@ -21,7 +20,7 @@
         background-image: url("images/backgroundwallpaper.jpg");
         height: 100vh;
         background-position: center;
-        background-size: cover;
+        background-size: cover; 
 
         font-family:  Helvetica;
 
@@ -39,19 +38,31 @@
 
     }
   
-  .footer {
+    .footer {
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        height: 10vh;
         background-color: rgb(46, 69, 53);
         color: white;
         text-align: center;
+        min-height: 10vh;
+
+        div {
+            margin: 10px;
+        }
 
         a {
             color: white;
             font-size: large;
             padding: 5px;
+        }
+    }
+
+    @media screen and (min-width: 400px){
+        .footer {
+            flex-direction: row;
+            padding: 10px 0px 10px;
         }
     }
 
