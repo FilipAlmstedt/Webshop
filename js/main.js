@@ -1,4 +1,3 @@
- feature/produktsida
 class Product {
     constructor(id, image, name, height, price, inCart) {
         this.id = id;
@@ -13,10 +12,6 @@ class Product {
 
 
 $(function() {
-    
-//    var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
-//img.attr('src', responseObject.imgurl);
-//img.appendTo('#imagediv');
 
 
 
@@ -44,22 +39,9 @@ $(function() {
 
     listitem.appendTo(container);
     container.appendTo($(".main"));
-
+    
+ 
 
 })
 })
 
-$(function() {
-    $(".toggle").on("click",openMobileNavbar);
-});
-
-/*Aktiverar klassen active i css som gör att navbar visas vertikalt i mobilt läge*/ 
-function openMobileNavbar(){
-    if ($(".item").hasClass("active")) {
-        $(".item").removeClass("active");
-    } 
-    else {
-        $(".item").addClass("active");
-    }
-}
- develop
