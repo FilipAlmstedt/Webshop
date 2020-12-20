@@ -14,7 +14,6 @@ let shoppingCartContainer = $("<div>");
 shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
-let shoppingCartClosed = true;
 
 $(function() {
 
@@ -41,18 +40,18 @@ $(function() {
     
     console.log(product);
 
-    let container = $("#productlist");
-    let listitem = $("<li>")
+    //let container = $("#productlist");
+    //let listitem = $("<li>")
 
     
-    $("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
-    $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
+   /*$("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
+   $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
     $("<p>").html(product.name).addClass("name").appendTo(listitem);
     $("<div>").addClass("fas fa-shopping-cart").appendTo(listitem);
 
 
     listitem.appendTo(container);
-    container.appendTo($(".main"));
+    container.appendTo($(".main"));*/
     
 });
 

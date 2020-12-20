@@ -14,6 +14,7 @@
 }
 
 #wrapper {
+    font-family:  Helvetica;
     .welcomeContainer {
 
         /*Basstyling för hela welcomeContainer-div:en*/
@@ -21,8 +22,6 @@
         height: 100vh;
         background-position: center;
         background-size: cover;
-
-        font-family:  Helvetica;
 
         display: $useFlex;
         flex-direction: $useFlexDirectionColumn;
@@ -37,8 +36,12 @@
         @include arrowDiv;
 
     }
-  
-  .footer {
+
+    @include menu;
+
+    @include welcomeContainerResponsive;
+
+    .footer {
         display: flex;
         justify-content: space-around;
         align-items: center;
