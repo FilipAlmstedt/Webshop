@@ -1,5 +1,6 @@
 @import './mixins';
 @import './variables';
+@import 'checkout';
  
 * { 
     box-sizing: border-box;
@@ -38,6 +39,7 @@
         @include merryChristmasContainer;
             
         @include arrowDiv;
+
     }
 
       
@@ -87,9 +89,10 @@
             }
         } 
 
-    }
 
-    .footer {
+    }
+  
+  .footer {
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -105,4 +108,8 @@
 
         }
     }
-} 
+
+
+}
+
+@include shoppingCartWindow;

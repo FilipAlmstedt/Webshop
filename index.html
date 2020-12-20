@@ -1,71 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
-
+  
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@200;500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="js/main.js"></script>
 
     <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css" />
     <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.theme.css" />
     <link rel="stylesheet" href="css/main.css" />
-    
+
     <title>Webbshop</title>
 </head>
+
 <body>
     <div id="wrapper">
         
-        <div class="welcomeContainer">
+        <div class="welcomeContainer" id="welcomeContainer">
                
             <nav>
                 <ul class="menu">
-                    <a href="index.html"><img src="css/images/logo.png" height="45" width="45" alt="Loggan till företaget"></a>
+                    <a href="index.html"><img src="css/images/logo.png" height="45" width="45"
+                            alt="Loggan till företaget"></a>
                     <li class="logo"><a href="index.html">Granaffär</a></li>
                     <li class="item"><a href="index.html"><i class="fas fa-home"></i> Hem</a></li>
                     <li class="item"><a href="#main"><i class="fas fa-tree"></i> Produkter</a></li>
                     <li class="item"><a href="#footer"><i class="fas fa-phone"></i> Kontakta Oss</a></li>
-                    <li class="item"><a href="#" id="shoppingCartWindowButton"><i class="fas fa-shopping-cart"></i> Varukorg</a></li>
-                    
-                    
+                    <li class="item"><a href="#" id="shoppingCartWindowButton"><i class="fas fa-shopping-cart"></i>
+                            Varukorg</a></li>
+
+
                     <li class="toggle"><span class="bars"></span></li>
                 </ul>
             </nav>
-            
+
             <div class="welcomeSectionContainer" id="welcomeSectionContainer">
                 <div class="welcomeSection">
                     <h1>God Jul!</h1>
-                    <p>Här kan du köpa julgranar i alla dess former innan julen. Klicka på pilen nedan och hitta din gran!</p>
-                    
+                    <p>Här kan du köpa julgranar i alla dess former innan julen. Klicka på pilen nedan och hitta din
+                        gran!</p>
                 </div>
             </div>
 
             <!--Dessa divar används som divar så att flex wrap ska funka så alla div:ar ligger på rätt ställe-->
-            <div></div><div></div><div></div>
+            <div></div>
+            <div></div>
+            <div></div>
 
             <div class="arrowDivContainer">
                 <div class="arrowDiv">
                     <a href="#main"><i class="fas fa-arrow-alt-circle-down fa-5x"></i></a>
                 </div>
             </div>
+          
+            <!-- Varukorgsrutan -->
+            <div id="shoppingCartWindow"></div>
+
+
         </div>
 
         <div class="main">
-            <h2>Produkter</h2>
-              <ul id="productlist"></ul>
+
         </div>
 
-        <div class="footer">
+        <div class="footer" id="footer">
+
             <div class="footerAdress">
                 <p>Granvägen 24</p>
                 <p>116 12 Stockholm</p>
@@ -82,4 +91,5 @@
         </div>
     </div>
 </body>
+
 </html>
