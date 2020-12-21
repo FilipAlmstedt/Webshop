@@ -71,9 +71,10 @@ function createCheckoutHtml () {
 
         // get container - add divs
         let productDiv = $('<div>').addClass('productDiv').appendTo($('.shoppingCart'));
-        let productImage = $('<img>').addClass('productImageCheckout').attr('src', tempShoppingCart[i].image).appendTo(productDiv);        
-        let productInfo = $('<div>').addClass('productInfo').appendTo(productDiv);        
-        let productAmount = $('<div>').addClass('productAmount').appendTo(productDiv);  
+        let productImage = $('<img>').addClass('productImageCheckout').attr('src', tempShoppingCart[i].image).appendTo(productDiv);
+        let containerInfoAmount = $('<div>').addClass('containerInfoAmount').appendTo(productDiv);
+        let productInfo = $('<div>').addClass('productInfo').appendTo(containerInfoAmount);        
+        let productAmount = $('<div>').addClass('productAmount').appendTo(containerInfoAmount);  
 
         // add product info - name, height, price
         $('<p>').addClass('productName').html(tempShoppingCart[i].name).appendTo(productInfo);                
@@ -90,7 +91,8 @@ function createCheckoutHtml () {
 
     // h2 if cart is empty
     if (tempShoppingCart.length == 0) {
-        $('<h2>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
+        $('<h4>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
+        //$('#confirmPurchase').addClass
     }
 }
 
