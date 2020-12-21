@@ -34,13 +34,11 @@
 
                 .productDiv {
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: space-evenly;
                     margin: 10px;
-                    height: 30vh;
 
                     .productImageCheckout {
-                        height: 100%;
-                        background-color: white;
+                        width: 50%;
                     }
 
                     .containerInfoAmount {
@@ -136,20 +134,18 @@
                 }
             }
 
-            .productDiv {
-                height: 60vh;
+            .productImageCheckout {
+                width: 30% !important;
+                background-color: white;
+            }
 
-
-                .containerInfoAmount {
-                    display: flex;
-                    flex-direction: row;
-                    background-color: red;
-    
+            .containerInfoAmount {
+                flex-direction: row !important;
+                justify-content: space-around !important;
                     
-                    .productInfo {
-                        display: flex;
-                        flex-direction: row-reverse;
-                    }
+                .productInfo {
+                    display: flex;
+                    flex-direction: row-reverse;
                 }
             }
         }
@@ -177,12 +173,30 @@
                 } 
             } 
 
-            .checkoutMain {
-                width: 90%;
-                margin-left: auto;
-                margin-right: auto;
-            }
+            .shoppingCart {
+                width: 80% !important; 
 
+                .productDiv {
+                    display: flex;
+                    justify-content: space-evenly;
+                    margin: 10px;
+
+                    .productImageCheckout {
+                        width: 20% !important;
+                        background-color: white;
+                    }
+    
+                    .containerInfoAmount {
+                        flex-direction: row !important;
+                        justify-content: space-around !important;
+                            
+                        .productInfo {
+                            display: flex;
+                            flex-direction: row-reverse;
+                        }
+                    }
+                }
+            }
         }
     }
 }
