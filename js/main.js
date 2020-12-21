@@ -53,6 +53,7 @@ $(function() {
     listitem.appendTo(container);
     container.appendTo($(".main"));
 
+
     // add products to temporary shopping cart
     tempShoppingCart.push(p1, p2, p3);
 

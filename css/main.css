@@ -225,6 +225,9 @@
   font-family: MerryChristmasStar;
   src: url(../css/fonts/MerryChristmasStar.ttf); }
 
+#wrapper {
+  background-color: #cccccc; }
+  
 #wrapper .welcomeContainer {
   /*Basstyling för hela welcomeContainer-div:en*/
   background-image: url("images/backgroundwallpaper.jpg");
@@ -237,27 +240,28 @@
   justify-content: space-between;
   /*För surfplattor*/
   /*För desktops*/ }
-  #wrapper .welcomeContainer .menu {
-    background-color: rgba(240, 240, 240, 0.6);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    list-style-type: none;
-    /*headern för loggan*/
-    /*Alla li länkar i navbaren*/
-    /*Denna klass aktiveras när hamburgar-ikonen klickas i*/
-    /*Hela hamburgar-ikonen*/ }
-    #wrapper .welcomeContainer .menu li {
-      font-size: 16px;
-      padding: 15px 5px;
-      white-space: nowrap; }
-      #wrapper .welcomeContainer .menu li a {
-        color: black;
-        text-decoration: none; }
-      #wrapper .welcomeContainer .menu li a:hover {
-        text-decoration: underline; }
-    #wrapper .welcomeContainer .menu .logo {
+ 
+    #wrapper .welcomeContainer .menu {
+      background-color: rgba(240, 240, 240, 0.6);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      list-style-type: none;
+      /*headern för loggan*/
+      /*Alla li länkar i navbaren*/
+      /*Denna klass aktiveras när hamburgar-ikonen klickas i*/
+      /*Hela hamburgar-ikonen*/ }
+      #wrapper .welcomeContainer .menu li {
+        font-size: 16px;
+        padding: 15px 5px;
+        white-space: nowrap; }
+        #wrapper .welcomeContainer .menu li a {
+          color: black;
+          text-decoration: none; }
+        #wrapper .welcomeContainer .menu li a:hover {
+          text-decoration: underline; }
+#wrapper .welcomeContainer .menu .logo {
       font-family: larger Arno Pro, Tribun ADF Std, serif;
       font-style: italic; }
       #wrapper .welcomeContainer .menu .logo a:hover {
@@ -312,9 +316,57 @@
       #wrapper .welcomeContainer .menu .logo {
         flex: 1; }
       #wrapper .welcomeContainer .menu .item.button {
-        width: auto;
+        order: 2;
+        transition: all .2s ease; }
+      #wrapper .welcomeContainer .menu .item.active {
+        display: flex;
+        flex-direction: column;
+        transition: height .2s ease; }
+      #wrapper .welcomeContainer .menu .toggle {
+        cursor: pointer;
         order: 1;
-        display: block; }
+        margin-right: 1.5%;
+        margin-bottom: 1.5%;
+        /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/ }
+        #wrapper .welcomeContainer .menu .toggle .bars {
+          background: white;
+          display: inline-block;
+          height: 2px;
+          position: relative;
+          width: 18px; }
+        #wrapper .welcomeContainer .menu .toggle .bars:before,
+        #wrapper .welcomeContainer .menu .toggle .bars:after {
+          background: white;
+          content: '';
+          display: block;
+          height: 100%;
+          position: absolute;
+          width: 100%; }
+        #wrapper .welcomeContainer .menu .toggle .bars:before {
+          top: 5px; }
+        #wrapper .welcomeContainer .menu .toggle .bars:after {
+          top: -5px; }
+    @media screen and (min-width: 468px) {
+      #wrapper .welcomeContainer .menu {
+        justify-content: center; }
+        #wrapper .welcomeContainer .menu .logo {
+          flex: 1; }
+        #wrapper .welcomeContainer .menu .item.button {
+          width: auto;
+          order: 1;
+          display: block; }
+        #wrapper .welcomeContainer .menu .toggle {
+          order: 2; } }
+    @media screen and (min-width: 769px) {
+      #wrapper .welcomeContainer .menu .item {
+        display: block;
+        width: auto; }
+      #wrapper .welcomeContainer .menu .logo {
+        order: 0; }
+      #wrapper .welcomeContainer .menu .item {
+        order: 1; }
+      #wrapper .welcomeContainer .menu li {
+        padding: 15px 10px; }
       #wrapper .welcomeContainer .menu .toggle {
         order: 2; } }
   @media screen and (min-width: 1024px) {
@@ -343,23 +395,67 @@
       text-align: center;
       color: #FBF5E9;
       font-size: 20px; }
-      #wrapper .welcomeContainer .welcomeSectionContainer .welcomeSection h1 {
-        font-family: MerryChristmasStar;
-        font-size: 4em;
-        color: #CC231E; }
-      #wrapper .welcomeContainer .welcomeSectionContainer .welcomeSection p {
-        margin-top: 5%; }
   #wrapper .welcomeContainer .arrowDivContainer {
+        display: none; }
+      #wrapper .welcomeContainer .menu .menu li.button {
+        padding-right: 0; } }
+    #wrapper .welcomeContainer .welcomeSectionContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 25vh; }
+      #wrapper .welcomeContainer .welcomeSectionContainer .welcomeSection {
+        padding: 6%;
+        font-family: Helvetica;
+        text-align: center;
+        color: #FBF5E9;
+        font-size: 20px; }
+        #wrapper .welcomeContainer .welcomeSectionContainer .welcomeSection h1 {
+          font-family: MerryChristmasStar;
+          font-size: 4em;
+          color: #CC231E; }
+        #wrapper .welcomeContainer .welcomeSectionContainer .welcomeSection p {
+          margin-top: 5%; }
+    #wrapper .welcomeContainer .arrowDivContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5%; }
+      #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a {
+        color: #f5624d; }
+      #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a:hover {
+        color: #FBF5E9;
+        transition: color 0.2s ease-in-out; }
+  #wrapper .main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1.5%; }
-    #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a {
-      color: #f5624d; }
-    #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a:hover {
-      color: #FBF5E9;
-      transition: color 0.2s ease-in-out; }
+    width: 70%;
+    margin: 0 auto; }
+    #wrapper .main h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      padding-top: 2%; }
+    @media screen and (min-width: 768px) {
+      #wrapper .main #productlist {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between; } }
+    #wrapper .main #productlist li {
+      list-style: none;
+      padding-top: 5%; }
+      @media screen and (min-width: 768px) {
+        #wrapper .main #productlist li {
+          width: 30%; } }
+      #wrapper .main #productlist li img {
+        width: 100%; }
+      #wrapper .main #productlist li p {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 200; }
 
 #wrapper .footer {
   display: flex;
