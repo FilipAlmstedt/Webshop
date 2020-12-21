@@ -29,13 +29,12 @@ $(function() {
 
     $(".toggle").on("click",openMobileNavbar);
 
-
     //modifyShoppingCart();
-        
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
 
     checkShoppingCart();
+
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     let container = $("#productlist");
