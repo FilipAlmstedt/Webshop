@@ -1,7 +1,12 @@
 @import './mixins/responsive';  
 
 // Alla större divs från welcomeContainer div:en. Innehåller navbar-div, en div med en välkomstext och en pil div där en pil finns som länkar ner till produkterna
-@import './mixins/welcomeContainer/navbar';
 @import './mixins/welcomeContainer/merryChristmasSection'; 
 @import './mixins/welcomeContainer/arrowDiv';
 @import './mixins/welcomeContainer/responsiveDivs';
+
+@import 'scss/mixins/checkoutPage/_checkout.scss';
+@import './mixins/welcomeContainer/navbar';
+
+// mixin för varukorgsfönstret
+@import './mixins/shoppingCartWindow/shoppingCartContainer';
