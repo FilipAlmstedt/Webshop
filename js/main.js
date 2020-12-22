@@ -18,14 +18,6 @@ let shoppingCart = [];
 
 $(function() {
 
-    let p1 = new Product('../css/images/gran1.jpg', "Elise", 200, 500, 1);
-    let p2 = new Product('../css/images/gran2.png', "Kristoffer", 100, 150, 1);
-    let p3 = new Product('../css/images/gran3.png', "Ivan", 250, 650, 1);
-    let p4 = new Product('../css/images/gran4.png', "Lydia", 70, 350, 1);
-    let p5 = new Product('../css/images/gran5.png', "Vera", 50, 200, 1);
-    let p6 = new Product('../css/images/gran6.png', "Jan", 300, 800, 1);
-
-    let products = [p1, p2, p3, p4, p5, p6];
 
     $(".toggle").on("click",openMobileNavbar);
 
@@ -37,18 +29,10 @@ $(function() {
 
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
-    let container = $("#productlist");
-    let listitem = $("<li>");
+    printProducts();
 
-    /*
-    $("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
-    $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
-    $("<p>").html(product.name).addClass("name").appendTo(listitem);
-    $("<div>").addClass("fas fa-shopping-cart").appendTo(listitem);
-    */
+    
 
-    listitem.appendTo(container);
-    container.appendTo($(".main"));
 
     //add total price of temporary shopping cart
     for (let i = 0; i < shoppingCart.length; i++) {
@@ -57,6 +41,33 @@ $(function() {
     
     createCheckoutHtml();
 });
+
+let p1 = new Product('css/images/gran1.png', "Elise", 200, 500, 1);
+    let p2 = new Product('css/images/gran1.png', "Kristoffer", 100, 150, 1);
+    let p3 = new Product('css/images/gran1.png', "Ivan", 250, 650, 1);
+    let p4 = new Product('css/images/gran1.png', "Lydia", 70, 350, 1);
+    let p5 = new Product('css/images/gran1.png', "Vera", 50, 200, 1);
+    let p6 = new Product('css/images/gran1.png', "Jan", 300, 800, 1);
+
+    let products = [p1, p2, p3, p4, p5, p6];
+
+// All products showing in main
+function printProducts() {
+    $.each(products, (i, product) => {
+        let container = $("#productlist");
+        let listitem = $("<li>");
+
+        $("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
+        $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
+        $("<p>").html(product.name).addClass("name").appendTo(listitem);
+        $("<div>").addClass("fas fa-shopping-cart").appendTo(listitem);
+
+        listitem.appendTo(container);
+        container.appendTo($(".main"));
+    });
+
+}
+
 
 function createCheckoutHtml () {
     $('.shoppingCart').html('');
