@@ -1,0 +1,41 @@
+@import '../../variables';
+
+/*Styling för hur en produkts info ska visas upp på sidan product.html inom div:en showProductDiv*/
+@mixin showProductDiv {
+    #showProductDiv {
+        display: $useFlex;
+        flex-direction: $useFlexDirectionColumn;
+        justify-content: $useSpaceBetween;
+        align-items: $useCenterForFlex;
+        padding-top: 2%;
+
+        .itemTitleAndImageDiv {
+            width:49vh;
+            text-align: center;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            display: $useFlex;
+            flex-direction: $useFlexDirectionColumn;
+            justify-content: $useCenterForFlex;
+            align-items: $useCenterForFlex;
+            img {
+                width: 45vh;
+                height: 70vh;
+            }
+        }
+        .descriptionsAndPriceDiv{
+            padding-top: 0.5%;
+            padding-bottom: 2%;
+            width: 40vh;
+            height: 30vh;
+            display: $useFlex;
+            flex-direction: $useFlexDirectionColumn;
+            justify-content: $useSpaceEvenly;
+            align-items: $useCenterForFlex;
+
+            h1{
+                text-align: center;
+            }
+        }
+    }
+}
