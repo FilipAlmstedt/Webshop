@@ -1,5 +1,4 @@
 class Product {
-
     constructor(image, name, height, price, inCart) {
         this.id = x++;
         this.image = image;
@@ -16,14 +15,29 @@ shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
 
-$(function() {
 
+
+// temporary shopping cart while developing
+let tempShoppingCart = [];
+
+let p1 = new Product('css/images/gran1.jpg', "Elise", 200, 500, 0);
+let p2 = new Product('css/images/gran2.png', "Kristoffer", 100, 150, 0);
+let p3 = new Product('css/images/gran3.png', "Ivan", 250, 650, 0);
+let p4 = new Product('css/images/gran4.png', "Lydia", 70, 350, 0);
+let p5 = new Product('css/images/gran5.png', "Vera", 50, 200, 0);
+let p6 = new Product('css/images/gran6.png', "Jan", 300, 800, 0);
+
+let products = [p1, p2, p3, p4, p5, p6];
+
+
+
+$(function() {
 
     $(".toggle").on("click",openMobileNavbar);
 
-    //modifyShoppingCart();
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
+
 
     checkShoppingCart();
 
@@ -31,41 +45,36 @@ $(function() {
 
     printProducts();
 
-    
-
-
     //add total price of temporary shopping cart
     for (let i = 0; i < shoppingCart.length; i++) {
         totalPrice += shoppingCart[i].price;        
     }
     
     createCheckoutHtml();
+
+    printProducts();
 });
 
-let p1 = new Product('css/images/gran1.png', "Elise", 200, 500, 1);
-    let p2 = new Product('css/images/gran1.png', "Kristoffer", 100, 150, 1);
-    let p3 = new Product('css/images/gran1.png', "Ivan", 250, 650, 1);
-    let p4 = new Product('css/images/gran1.png', "Lydia", 70, 350, 1);
-    let p5 = new Product('css/images/gran1.png', "Vera", 50, 200, 1);
-    let p6 = new Product('css/images/gran1.png', "Jan", 300, 800, 1);
-
-    let products = [p1, p2, p3, p4, p5, p6];
 
 // All products showing in main
 function printProducts() {
     $.each(products, (i, product) => {
         let container = $("#productlist");
         let listitem = $("<li>");
-
+      
         $("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
         $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
         $("<p>").html(product.name).addClass("name").appendTo(listitem);
-        $("<div>").addClass("fas fa-shopping-cart").appendTo(listitem);
+        $("<p>").addClass("fas fa-shopping-cart").attr("id","addToShoppingCart"+product.id).appendTo(listitem);
 
         listitem.appendTo(container);
         container.appendTo($(".main"));
+        
     });
 
+    $.each(products, (i, product) => {
+        $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product},addItemToShoppingCart);
+    });
 }
 
 
@@ -166,6 +175,11 @@ function modifyShoppingCart(){
 
     /* Default när man öppnar webbsidan */
     getResponsivePosition($(window).width());
+
+    $.each(products, (i, product) => {
+        $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product},addItemToShoppingCart);
+    });
+    checkShoppingCart();
 }
 
 /* Kollar vilken längd hemsidafönstret har just nu. Ifall den är mindre än 769px så anpassar sig varukorgsfönstret för mobil/tablets istället */
@@ -174,17 +188,17 @@ function getResponsivePosition(windowWidth){
     if(windowWidth > 769) {
         return $("#shoppingCartWindow").dialog({
             position: {
-                my: "right top+20%",
+                my: "right top+60",
                 at: "right top",
-                of: "#welcomeContainer"
+                of: "#wrapper"
             }
         });
     } else {
         return $("#shoppingCartWindow").dialog({
             position: {
-                my: "center top+20%",
+                my: "center top+250",
                 at: "center top",
-                of: "#welcomeContainer"
+                of: "#wrapper"
             }
         });
     }
@@ -264,7 +278,8 @@ function showAndRefreshShoppingCartItems(){
 /* Kollar varukorgslistan. Ifall den är tom skriver rutan ut att varukorgen är tom, annars så anropar den funktionen showAndRefreshShoppingCartItems och skriver ut alla varor i listan */
 function checkShoppingCart(){
     if(shoppingCart.length == 0){
-        $("#shoppingCartWindow").html("<p>Din varukorg är just nu tom!</p>");
+        shoppingCartContainer.html("<p>Din varukorg är just nu tom!</p>");
+        shoppingCartContainer.appendTo($("shoppingCartWindow"));
         console.log("Antal varor i varukorgen: ",shoppingCart.length);
     } else {
         showAndRefreshShoppingCartItems();
@@ -312,4 +327,35 @@ function removeItem(e){
     checkShoppingCart();
 }
 
+function createShowProductDiv(e){
 
+    $("#showProductDiv").html("");
+
+    let itemTitleAndImageDiv = $("<div>").attr("class", "itemTitleAndImageDiv");
+    $("<img>").attr("src", e.data.chosenProduct.image).appendTo(itemTitleAndImageDiv);
+    itemTitleAndImageDiv.appendTo($("#showProductDiv"));
+
+    let descriptionsAndPriceDiv = $("<div>").attr("class", "descriptionsAndPriceDiv");
+    $("<h1>").html(e.data.chosenProduct.title).appendTo(descriptionsAndPriceDiv);
+    $("<p>").html("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan imperdiet nisl, et aliquam ligula luctus id. Nullam ut gravida tellus, id finibus lacus.").appendTo(descriptionsAndPriceDiv);
+    $("<h2>").html("Pris: " + e.data.chosenProduct.price +" kr").appendTo(descriptionsAndPriceDiv);
+    $("<button>").attr("id", "addToShoppingCart").html("Lägg till i varukorgen").appendTo(descriptionsAndPriceDiv);
+    descriptionsAndPriceDiv.appendTo($("#showProductDiv"));
+
+    $("#addToShoppingCartOnProductSite").on("click",addItemToShoppingCart(e.data.chosenProduct));
+}
+
+function addItemToShoppingCart(e){
+    e.data.chosenProduct.inCart++;
+    if(e.data.chosenProduct.inCart == 1){
+        shoppingCart.push(e.data.chosenProduct);
+        console.log("Du la till produkten: ", e.data.chosenProduct.name);
+        totalPrice += e.data.chosenProduct.price; 
+        checkShoppingCart();
+        $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
+    } else {
+        totalPrice += e.data.chosenProduct.price;
+        checkShoppingCart();
+        $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
+    }
+}
