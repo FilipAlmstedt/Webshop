@@ -1,6 +1,5 @@
 @import './mixins';
 @import './variables';
-@import 'checkout';
  
 * { 
     box-sizing: border-box;
@@ -15,14 +14,18 @@
 }
 
 #wrapper {
+
     font-family:  Helvetica;
+    background-color: #cccccc;
+
+
     .welcomeContainer {
 
         /*Basstyling för hela welcomeContainer-div:en*/
         background-image: url("images/backgroundwallpaper.jpg");
         height: 100vh;
         background-position: center;
-        background-size: cover;
+        background-size: cover; 
 
         display: $useFlex;
         flex-direction: $useFlexDirectionColumn;
@@ -37,6 +40,7 @@
         @include arrowDiv;
 
     }
+
 
     @include menu;
 
@@ -97,20 +101,69 @@
 
     .footer {
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        height: 10vh;
         background-color: rgb(46, 69, 53);
         color: white;
         text-align: center;
+        min-height: 10vh;
+
+        div {
+            margin: 10px;
+        }
 
         a {
             color: white;
             font-size: large;
             padding: 5px;
+
         }
     }
 
+
+    @media screen and (min-width: 400px){
+        .footer {
+            flex-direction: row;
+            padding: 10px 0px 10px;
+        }
+    }
+
+
 }
 
+
+}
+
+.confirmContainer {
+    background-color: rgba(31, 61, 31, 0.326);
+    color: rgb(46, 69, 53);            
+
+    height: auto;
+    min-height: 90vh;
+    background-position: center; 
+    background-size: cover;
+
+    display: flex; 
+    flex-direction: column;
+
+    @include menu;
+
+    .confirmMain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10vh;
+
+        p {
+            padding: 20px;
+        }
+
+        a {
+            position: absolute;
+            bottom: 20vh;
+            color: grey;
+        }
+    }
+}
 @include shoppingCartWindow;
