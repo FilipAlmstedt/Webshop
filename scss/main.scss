@@ -30,7 +30,7 @@
         display: $useFlex;
         flex-direction: $useFlexDirectionColumn;
         justify-content: $useSpaceBetween;
-        
+         
         @include menu;
 
         @include welcomeContainerResponsive;
@@ -134,6 +134,8 @@
 
 
 }
+
+@include checkout;
 
 .confirmContainer {
     background-color: rgba(31, 61, 31, 0.326);
