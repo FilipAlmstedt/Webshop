@@ -35,19 +35,17 @@ $(function() {
 
     $(".toggle").on("click",openMobileNavbar);
 
-    modifyShoppingCart();
+    //modifyShoppingCart();
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
 
+    //shoppingCart.push(p1);
 
     checkShoppingCart();
 
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
-    //add total price of temporary shopping cart
-    /*for (let i = 0; i < shoppingCart.length; i++) {
-        totalPrice += shoppingCart[i].price;        
-    }*/
+    printProducts();
     
     createCheckoutHtml();
 
@@ -84,7 +82,7 @@ function createCheckoutHtml () {
 
         // get container - add divs
         let productDiv = $('<div>').addClass('productDiv').appendTo($('.shoppingCart'));
-        let productImage = $('<img>').addClass('productImageCheckout').attr('src', shoppingCart[i].image).appendTo(productDiv);
+        let productImage = $('<img>').addClass('productImageCheckout').attr('src', "../"+shoppingCart[i].image).appendTo(productDiv);
         let containerInfoAmount = $('<div>').addClass('containerInfoAmount').appendTo(productDiv);
         let productInfo = $('<div>').addClass('productInfo').appendTo(containerInfoAmount);        
         let productAmount = $('<div>').addClass('productAmount').appendTo(containerInfoAmount);  
@@ -102,10 +100,12 @@ function createCheckoutHtml () {
 
     $('.totalPriceP').html("Totalt: " + totalPrice + " SEK");
 
-    // h2 if cart is empty
+    // if cart is empty
     if (shoppingCart.length == 0) {
         $('<h4>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
-        //$('#confirmPurchase').addClass
+
+        $('#confirmPurchaseLink').attr("href", "#");
+        $('#confirmPurchaseButton').addClass("emptyCartButton");
     }
 }
 
@@ -178,7 +178,6 @@ function modifyShoppingCart(){
     $.each(products, (i, product) => {
         $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product},addItemToShoppingCart);
     });
-    checkShoppingCart();
 }
 
 /* Kollar vilken längd hemsidafönstret har just nu. Ifall den är mindre än 769px så anpassar sig varukorgsfönstret för mobil/tablets istället */
@@ -276,10 +275,11 @@ function showAndRefreshShoppingCartItems(){
 
 /* Kollar varukorgslistan. Ifall den är tom skriver rutan ut att varukorgen är tom, annars så anropar den funktionen showAndRefreshShoppingCartItems och skriver ut alla varor i listan */
 function checkShoppingCart(){
+    modifyShoppingCart();
     if(shoppingCart.length == 0){
         shoppingCartContainer.html("<p>Din varukorg är just nu tom!</p>");
         shoppingCartContainer.appendTo($("shoppingCartWindow"));
-        console.log("Antal varor i varukorgen: ",shoppingCart.length);
+        
     } else {
         showAndRefreshShoppingCartItems();
     }

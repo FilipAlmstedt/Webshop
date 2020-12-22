@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="../css/main.css" />
+    <script src="../jquery-ui-1.12.1/jquery-ui.js"></script>
     <script src="../js/main.js"></script>
+
+    <link rel="stylesheet" href="../jquery-ui-1.12.1/jquery-ui.css" />
+    <link rel="stylesheet" href="../jquery-ui-1.12.1/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="../css/main.css" />
     <title>Checkout</title>
 </head>
 <body>
@@ -16,7 +20,7 @@
         <div class="checkoutContainer">   
             <nav>
                 <ul class="menu">
-                    <a href="/index.html"><img src="../css/images/logo.png" height="45" width="45" alt="Loggan till företaget"></a>
+                    <a href="../index.html"><img src="../css/images/logo.png" height="45" width="45" alt="Loggan till företaget"></a>
                     <li class="logo"><a href="/index.html">Granaffär</a></li>
                     <li class="item"><a href="/index.html"><i class="fas fa-home"></i> Hem</a></li>
                     <li class="item"><a href="#main"><i class="fas fa-tree"></i> Produkter</a></li>
@@ -28,6 +32,8 @@
                 </ul>
             </nav>
 
+            <div id="shoppingCartWindow"></div>
+
             <div class="checkoutMain">
                 <h1>Kassa</h1>
                 <div class="shoppingCart"></div>
@@ -35,7 +41,7 @@
                     <p class="totalPriceP"></p>
                     <div class="checkoutBtn">
                         <a href="/index.html">Fortsätt handla</a>
-                        <a href="/html/confirmPurchase.html"><button type="button" id="confirmPurchase">Bekräfta köp</button></a>
+                        <a href="/html/confirmPurchase.html" id="confirmPurchaseLink"><button type="button" id="confirmPurchaseButton">Bekräfta köp</button></a>
                         
                     </div>
                 </div>
