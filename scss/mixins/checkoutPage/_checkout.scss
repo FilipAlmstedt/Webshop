@@ -1,21 +1,17 @@
 @import 'scss/mixins/_responsive.scss';
+@import '../../variables/colors';
+@import '../../variables/flexVariables';
 
-#wrapper { 
+@mixin checkout {
+    
     .checkoutContainer {
-
+    
         background-color: rgba(31, 61, 31, 0.326);
         color: rgb(46, 69, 53);            
-
-        height: auto;
         min-height: 90vh;
-        background-position: center; 
-        background-size: cover;
 
-        display: flex; 
-        flex-direction: column;
- 
         @include menu;
-
+        
         .checkoutMain {
             margin: 0;
             width: 100%;
@@ -23,10 +19,6 @@
             flex-direction: column;
             align-items: center;
             padding: 30px;
-
-            h1 {
-                color: rgb(46, 69, 53);   
-            }
 
             .shoppingCart {
                 padding-top: 30px;
@@ -80,6 +72,11 @@
                     display: flex;
                     justify-content: center;
                     color: rgba(255, 255, 255, 0.707);
+                }
+
+                .emptyCartButton {
+                    background-color: rgba(128, 128, 128, 0.204);
+                    color: rgba(0, 0, 0, 0.293);
                 }
             }
 

@@ -50,10 +50,7 @@ $(function() {
     listitem.appendTo(container);
     container.appendTo($(".main"));
 
-    //add total price of temporary shopping cart
-    for (let i = 0; i < shoppingCart.length; i++) {
-        totalPrice += shoppingCart[i].price;        
-    }
+
     
     createCheckoutHtml();
 });
@@ -83,10 +80,12 @@ function createCheckoutHtml () {
 
     $('.totalPriceP').html("Totalt: " + totalPrice + " SEK");
 
-    // h2 if cart is empty
+    // if cart is empty
     if (shoppingCart.length == 0) {
         $('<h4>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
-        //$('#confirmPurchase').addClass
+
+        $('#confirmPurchaseLink').attr("href", "#");
+        $('#confirmPurchaseButton').addClass(emptyCartButton);
     }
 }
 
