@@ -51,12 +51,12 @@ $(function() {
     createCheckoutHtml();
 });
 
-let p1 = new Product('../css/images/gran1.png', "Elise", 200, 500, 1);
-    let p2 = new Product('../css/images/gran1.png', "Kristoffer", 100, 150, 1);
-    let p3 = new Product('../css/images/gran1.png', "Ivan", 250, 650, 1);
-    let p4 = new Product('../css/images/gran1.png', "Lydia", 70, 350, 1);
-    let p5 = new Product('../css/images/gran1.png', "Vera", 50, 200, 1);
-    let p6 = new Product('../css/images/gran1.png', "Jan", 300, 800, 1);
+let p1 = new Product('css/images/gran1.png', "Elise", 200, 500, 1);
+    let p2 = new Product('css/images/gran1.png', "Kristoffer", 100, 150, 1);
+    let p3 = new Product('css/images/gran1.png', "Ivan", 250, 650, 1);
+    let p4 = new Product('css/images/gran1.png', "Lydia", 70, 350, 1);
+    let p5 = new Product('css/images/gran1.png', "Vera", 50, 200, 1);
+    let p6 = new Product('css/images/gran1.png', "Jan", 300, 800, 1);
 
     let products = [p1, p2, p3, p4, p5, p6];
 
