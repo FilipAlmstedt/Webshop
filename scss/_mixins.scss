@@ -8,3 +8,7 @@
 
 // mixin för varukorgsfönstret
 @import './mixins/shoppingCartWindow/shoppingCartContainer';
+
+// mixin för den enskilda produktsidan och den responsiva
+@import './mixins/productSite/productStyling';
+@import './mixins/productSite/responsiveProductDiv';

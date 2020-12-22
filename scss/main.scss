@@ -1,5 +1,6 @@
 @import './mixins';
 @import './variables';
+@import 'checkout';
  
 * { 
     box-sizing: border-box;
@@ -41,6 +42,59 @@
 
     @include welcomeContainerResponsive;
 
+    @include showProductDiv;
+
+    @include responsiveProductDiv;
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        margin: 0 auto;
+
+        @media screen and (min-width: 768px) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            padding-top: 2%;
+        }
+
+        #productlist {
+            
+
+            li {
+                list-style: none;
+                padding-top: 5%;
+                
+                @media screen and (min-width: 768px) {
+                   width: 30%; 
+                }
+            
+
+                img {
+                    width: 100%
+                }
+
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 200;
+                }
+
+            }
+        } 
+
+
+    }
+
     .footer {
         display: flex;
         justify-content: space-around;
@@ -56,7 +110,6 @@
             padding: 5px;
         }
     }
-
 
 }
 

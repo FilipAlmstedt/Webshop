@@ -1,0 +1,35 @@
+@import '../../mixins/responsive';
+@import '../../variables';
+
+/*Responsiv styling av product.html inom div:en showProductDiv*/
+@mixin responsiveProductDiv {
+    @include desktopsOnly {
+        #showProductDiv {
+            display: $useFlex;
+            flex-direction: $useFlexDirectionRow;
+            justify-content: $useSpaceEvenly;
+            align-items: $useCenterForFlex;
+            padding-top: 2%;
+            
+            .itemTitleAndImageDiv {
+                margin-top: 2%;
+                margin-bottom: 2%;
+                display: $useFlex;
+                flex-direction: $useFlexDirectionColumn;
+                justify-content: $useCenterForFlex;
+                align-items: $useCenterForFlex;
+                img {
+                    width: 45vh;
+                    height: 70vh;
+                }
+            }
+            .descriptionsAndPriceDiv{
+                height: 40vh;
+                display:  $useFlex;
+                flex-direction: $useFlexDirectionColumn;
+                justify-content: $useSpaceBetween;
+                align-items: flex-start;
+            }
+        }
+    }
+}
