@@ -17,9 +17,6 @@ let shoppingCart = [];
 
 
 
-// temporary shopping cart while developing
-let tempShoppingCart = [];
-
 let p1 = new Product('css/images/gran1.jpg', "Elise", 200, 500, 0);
 let p2 = new Product('css/images/gran2.png', "Kristoffer", 100, 150, 0);
 let p3 = new Product('css/images/gran3.png', "Ivan", 250, 650, 0);
@@ -35,21 +32,15 @@ $(function() {
 
     $(".toggle").on("click",openMobileNavbar);
 
-    //modifyShoppingCart();
+    modifyShoppingCart();
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
-
-    //shoppingCart.push(p1);
-
-    checkShoppingCart();
 
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     printProducts();
     
     createCheckoutHtml();
-
-    printProducts();
 });
 
 
@@ -57,11 +48,13 @@ $(function() {
 function printProducts() {
     $.each(products, (i, product) => {
         let container = $("#productlist");
+        
         let listitem = $("<li>");
       
         $("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
         $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
         $("<p>").html(product.name).addClass("name").appendTo(listitem);
+        $("<a>").attr("href", "html/product.html").attr("id","goToProductSite").html("Gå till: " + product.name).appendTo(listitem);
         $("<i>").addClass("fas fa-shopping-cart").attr("id","addToShoppingCart"+product.id).appendTo(listitem);
 
         listitem.appendTo(container);
@@ -71,6 +64,7 @@ function printProducts() {
 
     $.each(products, (i, product) => {
         $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product},addItemToShoppingCart);
+        $("#goToProductSite").on("click",{chosenProduct: product},createShowProductDiv)
     });
 }
 
@@ -175,14 +169,11 @@ function modifyShoppingCart(){
     /* Default när man öppnar webbsidan */
     getResponsivePosition($(window).width());
 
-    $.each(products, (i, product) => {
-        $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product},addItemToShoppingCart);
-    });
+    checkShoppingCart();
 }
 
 /* Kollar vilken längd hemsidafönstret har just nu. Ifall den är mindre än 769px så anpassar sig varukorgsfönstret för mobil/tablets istället */
 function getResponsivePosition(windowWidth){
-    console.log($(window).width());
     if(windowWidth > 769) {
         return $("#shoppingCartWindow").dialog({
             position: {
@@ -275,12 +266,11 @@ function showAndRefreshShoppingCartItems(){
 
 /* Kollar varukorgslistan. Ifall den är tom skriver rutan ut att varukorgen är tom, annars så anropar den funktionen showAndRefreshShoppingCartItems och skriver ut alla varor i listan */
 function checkShoppingCart(){
-    modifyShoppingCart();
     if(shoppingCart.length == 0){
         shoppingCartContainer.html("<p>Din varukorg är just nu tom!</p>");
-        shoppingCartContainer.appendTo($("shoppingCartWindow"));
-        
+        shoppingCartContainer.appendTo($("shoppingCartWindow"));   
     } else {
+
         showAndRefreshShoppingCartItems();
     }
 }
@@ -289,8 +279,6 @@ function checkShoppingCart(){
 function addSameItemToCart(e){
     e.data.sameItem.inCart++;
     totalPrice += e.data.sameItem.price; 
-    console.log(e.data.sameItem.price);
-
     checkShoppingCart();   
 }
 
@@ -330,31 +318,34 @@ function createShowProductDiv(e){
 
     $("#showProductDiv").html("");
 
-    let itemTitleAndImageDiv = $("<div>").attr("class", "itemTitleAndImageDiv");
-    $("<img>").attr("src", e.data.chosenProduct.image).appendTo(itemTitleAndImageDiv);
+    console.log(e.data.chosenProduct);
+
+    /*let itemTitleAndImageDiv = $("<div>").attr("class", "itemTitleAndImageDiv");
+    $("<img>").attr("src", "../"+e.data.chosenProduct.image).appendTo(itemTitleAndImageDiv);
     itemTitleAndImageDiv.appendTo($("#showProductDiv"));
 
     let descriptionsAndPriceDiv = $("<div>").attr("class", "descriptionsAndPriceDiv");
     $("<h1>").html(e.data.chosenProduct.title).appendTo(descriptionsAndPriceDiv);
     $("<p>").html("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan imperdiet nisl, et aliquam ligula luctus id. Nullam ut gravida tellus, id finibus lacus.").appendTo(descriptionsAndPriceDiv);
     $("<h2>").html("Pris: " + e.data.chosenProduct.price +" kr").appendTo(descriptionsAndPriceDiv);
-    $("<button>").attr("id", "addToShoppingCart").html("Lägg till i varukorgen").appendTo(descriptionsAndPriceDiv);
+    $("<button>").attr("id", "addToShoppingCartOnProductSite").html("Lägg till i varukorgen").appendTo(descriptionsAndPriceDiv);
     descriptionsAndPriceDiv.appendTo($("#showProductDiv"));
 
-    $("#addToShoppingCartOnProductSite").on("click",addItemToShoppingCart(e.data.chosenProduct));
+    $("#addToShoppingCartOnProductSite").on("click",addItemToShoppingCart(e.data.chosenProduct));*/
 }
 
 function addItemToShoppingCart(e){
+   
     e.data.chosenProduct.inCart++;
+    
     if(e.data.chosenProduct.inCart == 1){
         shoppingCart.push(e.data.chosenProduct);
         console.log("Du la till produkten: ", e.data.chosenProduct.name);
         totalPrice += e.data.chosenProduct.price; 
+
         checkShoppingCart();
-        $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
     } else {
         totalPrice += e.data.chosenProduct.price;
         checkShoppingCart();
-        $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
     }
 }
