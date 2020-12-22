@@ -72,7 +72,7 @@
 
             /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/
             .bars {
-                background: $hamburgerColor;
+                background: $navBarLogoColor;
                 display: inline-block;
                 height: 2px;
                 position: relative;
@@ -80,7 +80,7 @@
             }
             .bars:before,
             .bars:after {
-                background: $hamburgerColor;
+                background: $navBarLogoColor;
                 content: '';
                 display: block;
                 height: 100%;
