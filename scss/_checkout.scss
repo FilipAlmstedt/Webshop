@@ -18,7 +18,7 @@
         background-color: rgba(31, 61, 31, 0.326);
         height: auto;
         min-height: 100vh;
-        background-position: center; 
+        background-position: center;
         background-size: cover;
 
         display: flex; 
@@ -103,6 +103,7 @@
                     position: absolute;
                     transition: background .2s ease-out;
                     width: 100%;
+                    
                 }
                 .bars:before {
                     top: 5px;
@@ -121,11 +122,7 @@
             align-items: center;
             padding: 30px;
 
-            h1 {
-                color: rgb(46, 69, 53);            
-            }
-
-            .shoppingCart {
+            .shoppingBasket {
                 padding-top: 30px;
                 width: 100%;
 
@@ -135,7 +132,7 @@
                     margin: 10px;
                     height: 200px;
 
-                    .productImageCheckout {
+                    .productImage {
                         height: 200px;
                         width: 150px;
                         background-color: white;
@@ -156,29 +153,19 @@
                         height: 100%;
                         width: 20%;
 
-                        p {
-                            padding: 5px;
-                        }
-
                         button {
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            height: 20px;
-                            width: 20px;
+                            height: 30px;
+                            width: 60px;
                             border-radius: 25px;
                         }
                     }
                 }
-
-                .emptyCheckoutCart {
-                    display: flex;
-                    justify-content: center;
-                    color: white;
-                }
             }
 
-            .totalDiv {
+            .total {
                 margin: auto;
                 margin-right: 0;
                 display: flex;

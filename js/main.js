@@ -16,23 +16,17 @@ shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
 
-// temporary shopping cart while developing
-let tempShoppingCart = [];
-
 $(function() {
 
-    
-    
 
     $(".toggle").on("click",openMobileNavbar);
 
-
-    modifyShoppingCart();
-        
+    //modifyShoppingCart();
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
 
     checkShoppingCart();
+
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     printProducts();
@@ -40,12 +34,9 @@ $(function() {
     
 
 
-    // add products to temporary shopping cart
-    tempShoppingCart.push(p1, p2, p3);
-
     //add total price of temporary shopping cart
-    for (let i = 0; i < tempShoppingCart.length; i++) {
-        totalPrice += tempShoppingCart[i].price;        
+    for (let i = 0; i < shoppingCart.length; i++) {
+        totalPrice += shoppingCart[i].price;        
     }
     
     createCheckoutHtml();
@@ -81,30 +72,32 @@ function printProducts() {
 function createCheckoutHtml () {
     $('.shoppingCart').html('');
 
-    for (let i = 0; i < tempShoppingCart.length; i++) {
+    for (let i = 0; i < shoppingCart.length; i++) {
 
         // get container - add divs
         let productDiv = $('<div>').addClass('productDiv').appendTo($('.shoppingCart'));
-        let productImage = $('<img>').addClass('productImageCheckout').attr('src', tempShoppingCart[i].image).appendTo(productDiv);        
-        let productInfo = $('<div>').addClass('productInfo').appendTo(productDiv);        
-        let productAmount = $('<div>').addClass('productAmount').appendTo(productDiv);  
+        let productImage = $('<img>').addClass('productImageCheckout').attr('src', shoppingCart[i].image).appendTo(productDiv);
+        let containerInfoAmount = $('<div>').addClass('containerInfoAmount').appendTo(productDiv);
+        let productInfo = $('<div>').addClass('productInfo').appendTo(containerInfoAmount);        
+        let productAmount = $('<div>').addClass('productAmount').appendTo(containerInfoAmount);  
 
         // add product info - name, height, price
-        $('<p>').addClass('productName').html(tempShoppingCart[i].name).appendTo(productInfo);                
-        $('<p>').addClass('productHeight').html(tempShoppingCart[i].height + ' cm').appendTo(productInfo);                
-        $('<p>').addClass('productPrice').html(tempShoppingCart[i].price + ' SEK').appendTo(productInfo);  
+        $('<p>').addClass('productName').html(shoppingCart[i].name).appendTo(productInfo);                
+        $('<p>').addClass('productHeight').html(shoppingCart[i].height + ' cm').appendTo(productInfo);                
+        $('<p>').addClass('productPrice').html(shoppingCart[i].price + ' SEK').appendTo(productInfo);  
                 
         // add buttons + amount p tag
-        $('<button>').addClass('productButton').html('-').appendTo(productAmount).on('click', ()=> {subtractProductAmount(tempShoppingCart[i])});
-        $('<p>').html(tempShoppingCart[i].inCart).appendTo(productAmount);
-        $('<button>').addClass('productButton').html('+').appendTo(productAmount).on('click', ()=> {addProductAmount(tempShoppingCart[i])});
+        $('<button>').addClass('productButton').html('-').appendTo(productAmount).on('click', ()=> {subtractProductAmount(shoppingCart[i])});
+        $('<p>').html(shoppingCart[i].inCart).appendTo(productAmount);
+        $('<button>').addClass('productButton').html('+').appendTo(productAmount).on('click', ()=> {addProductAmount(shoppingCart[i])});
     }
 
     $('.totalPriceP').html("Totalt: " + totalPrice + " SEK");
 
     // h2 if cart is empty
-    if (tempShoppingCart.length == 0) {
-        $('<h2>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
+    if (shoppingCart.length == 0) {
+        $('<h4>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
+        //$('#confirmPurchase').addClass
     }
 }
 
@@ -115,9 +108,9 @@ function subtractProductAmount (product){
 
     // splice product if amount = 0
     if (product.inCart === 0) {
-        for (let i = 0; i < tempShoppingCart.length; i++) {
-            if (tempShoppingCart[i].id == product.id) {
-                tempShoppingCart.splice(i, 1);
+        for (let i = 0; i < shoppingCart.length; i++) {
+            if (shoppingCart[i].id == product.id) {
+                shoppingCart.splice(i, 1);
             }
         }
     };
