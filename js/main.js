@@ -34,7 +34,6 @@ $(function() {
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
 
-    $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     printProducts();
     $.each(products, (i, product) => {
@@ -80,6 +79,7 @@ function updateLS(){
     localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
     localStorage.setItem("totalPrice", totalPrice);
 }
+
 
 function createCheckoutHtml () {
     $('.shoppingCart').html('');
