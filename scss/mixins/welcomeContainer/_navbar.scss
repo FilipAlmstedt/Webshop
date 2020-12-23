@@ -1,0 +1,99 @@
+/*Allt inom min navbar*/
+
+@import '../../variables/colors';
+@import '../../variables/flexVariables';
+
+@mixin menu {
+    .menu {
+        background-color: $navBarColor;
+        display: $useFlex;
+        flex-wrap: wrap;
+        justify-content: $useSpaceBetween;
+        align-items: $useCenterForFlex;
+        list-style-type: none;
+        
+        li {
+            font-size: 16px;
+            padding: 15px 5px;
+            white-space: nowrap;
+        
+            a {
+                color: $navBarColorLinks;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }   
+
+        /*headern för loggan*/
+        .logo {
+            font-family: larger Arno Pro, Tribun ADF Std, serif;;
+            font-style: italic; 
+            a:hover {
+                text-decoration: none;
+                color: $navbarHoverColor;
+                transition: color 0.2s ease-out;
+            }
+            a {  
+                font-size: 25px;
+                color: #165B33;
+            }
+        }
+        /*Alla li länkar i navbaren*/
+        .item {
+            width: 100%;
+            text-align: center;
+            order: 3;
+            display: none;
+        
+            a:hover{
+                color: $navbarHoverColor;
+                transition: color 0.2s ease;
+            }
+        }
+        .item.button {
+            order: 2;
+            transition: all .2s ease;
+        }
+        /*Denna klass aktiveras när hamburgar-ikonen klickas i*/
+        .item.active {
+            display: $useFlex;
+            flex-direction: $useFlexDirectionColumn;
+            transition: height .2s ease;
+        }
+        
+        /*Hela hamburgar-ikonen*/
+        .toggle {
+            cursor:pointer;
+            order: 1;
+            margin-right: 1.5%;
+            margin-bottom: 1.5%;
+
+            /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/
+            .bars {
+                background: $navBarLogoColor;
+                display: inline-block;
+                height: 2px;
+                position: relative;
+                width: 18px;
+            }
+            .bars:before,
+            .bars:after {
+                background: $navBarLogoColor;
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                
+            }
+            .bars:before {
+                top: 5px;
+            }
+            .bars:after {
+                top: -5px;
+            }
+        }
+    }
+}

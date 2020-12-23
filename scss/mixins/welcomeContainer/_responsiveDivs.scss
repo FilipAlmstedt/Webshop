@@ -1,0 +1,47 @@
+@import '../../mixins/responsive';
+@import '../../variables/flexVariables';
+
+/*Mixin som hantera allt responsivt inom welcomeContainer-div:en*/
+@mixin welcomeContainerResponsive {
+    /*För surfplattor*/
+    @include tabletsOnly {
+        .menu {
+            justify-content: $useCenterForFlex;
+            .logo {
+                flex: 1;
+            }
+            .item.button {
+                width: auto;
+                order: 1;
+                display: block;
+            }
+            .toggle {
+                order: 2;
+            }
+        }
+    }
+    /*För desktops*/
+    @include desktopsOnly { 
+        .menu {
+            .item {
+                display: block;
+                width: auto;
+            }
+            .logo {
+                order: 0;
+            }
+            .item {
+                order: 1;
+            }
+            li {
+                padding: 15px 10px;
+            }
+            .toggle {
+                display: none;
+            }
+            .menu li.button {
+                padding-right: 0;
+            } 
+        }
+    }
+}

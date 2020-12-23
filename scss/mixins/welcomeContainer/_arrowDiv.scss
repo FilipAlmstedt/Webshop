@@ -1,0 +1,22 @@
+@import '../../variables/colors';
+@import '../../variables/flexVariables';
+
+/*Div som innehåller en pil som länkar till alla produkter som ligger under pilen.*/
+@mixin arrowDiv {
+    .arrowDivContainer {
+        display: $useFlex;
+        flex-direction: $useFlexDirectionColumn;
+        justify-content: $useCenterForFlex;
+        align-items: $useCenterForFlex; 
+        margin-bottom: 1.5%;
+        .arrowDiv {
+            a {
+                color: $arrowColor;
+            }
+            a:hover {
+                color: $welcomeContainerTextColor;
+                transition: color 0.2s ease-in-out;
+            }
+        }
+    }
+}

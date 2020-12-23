@@ -1,0 +1,148 @@
+@import 'scss/mixins/_responsive.scss';
+@import '../../variables/colors';
+@import '../../variables/flexVariables';
+
+@mixin checkout {
+    
+    .checkoutContainer {
+    
+        color: rgb(46, 69, 53);            
+        min-height: 90vh;
+
+        @include menu;
+        
+        .checkoutMain {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+
+            .shoppingCart {
+                padding-top: 20px;
+                width: 100%; 
+
+                .productDiv {
+                    display: flex;
+                    justify-content: space-evenly;
+                    margin: 10px;
+
+                    .productImageCheckout {
+                        width: 50%;
+                    }
+
+                    .containerInfoAmount {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 50%;
+
+                        .productInfo {
+                            display: flex;
+                            flex-direction: column;
+                        }
+    
+                        .productAmount {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding-top: 20px;
+    
+                            p {
+                                padding: 5px;
+                            }
+    
+                            button {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 10px;
+                                height: 20px;
+                                width: 20px;
+                                border-radius: 25px;
+                            }
+                        }
+                    }
+                }
+
+                .emptyCheckoutCart {
+                    display: flex;
+                    justify-content: center;
+                    color: rgba(255, 255, 255, 0.707);
+                }
+            }
+
+            .totalDiv {
+                margin: auto;
+                margin-right: 0;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+
+                p {
+                    align-self: flex-end;
+                    margin: 10px;
+                    font-weight: bold;
+                    font-size: large;
+                }
+                           
+                .checkoutBtn {
+                    display: flex;
+                    align-items: center;
+                    a {
+                        text-decoration: none;
+                        color: gray;
+                        margin-right: 10px;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    button {
+                        border-radius: 25px;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+
+        @include tabletsOnly {
+            .productImageCheckout {
+                width: 30% !important;
+            }
+
+            .containerInfoAmount {
+                flex-direction: row !important;
+                justify-content: space-around !important;
+            }
+        }
+
+        @include desktopsOnly { 
+            .shoppingCart {
+                width: 80% !important; 
+
+                .productDiv {
+                    display: flex;
+                    justify-content: space-evenly;
+                    margin: 10px;
+
+                    .productImageCheckout {
+                        width: 20% !important;
+                        background-color: white;
+                    }
+    
+                    .containerInfoAmount {
+                        flex-direction: row !important;
+                        justify-content: space-around !important;
+                            
+                        .productInfo {
+                            display: flex;
+                            flex-direction: row-reverse;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

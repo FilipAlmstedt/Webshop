@@ -1,45 +1,244 @@
-* {
-    margin: 0;
+@import './mixins';
+@import './variables';
+ 
+* { 
+    box-sizing: border-box;
     padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+@font-face{
+    font-family: MerryChristmasStar;
+    src: url(../css/fonts/MerryChristmasStar.ttf);
 }
 
 #wrapper {
-    .welcomeContainer {
-        background-image: url('./images/backgroundwallpaper.jpg');
-        background-position: center;
-        background-size: cover;
-        height: 100vh;
-        .header {
-            background-color: rgba(240,240,240,0.4);;
-            nav {
-                ul {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: flex-end;
-                    list-style: none;
-                    li {
-                        padding: 1%;
-                        margin: 1%;
-                    }
-                }
 
+    font-family:  Helvetica;
+    background-color: #cccccc;
+
+
+    .welcomeContainer {
+
+        /*Basstyling för hela welcomeContainer-div:en*/
+        background-image: url("images/backgroundwallpaper.jpg");
+        height: 100vh;
+        background-position: center;
+        background-size: cover; 
+
+        display: $useFlex;
+        flex-direction: $useFlexDirectionColumn;
+        justify-content: $useSpaceBetween;
+         
+        @include menu;
+
+        @include welcomeContainerResponsive;
+        
+        @include merryChristmasContainer;
+            
+        @include arrowDiv;
+
+    }
+
+    @include menu;
+
+    @include welcomeContainerResponsive;
+
+    @include showProductDiv;
+
+    @include responsiveProductDiv;
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .fa-shopping-cart {
+            &:hover {
+                cursor: pointer;
+                color: rgb(96, 96, 96);
+            }
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            padding-top: 2%;
+        }
+ 
+        #productlist {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-bottom: 5vh;
+ 
+            li {
+                list-style: none;
+                padding-top: 5%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                img {
+                    width: 50%;
+                    cursor: pointer;
+                }
+ 
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 200;
+                    
+                }
+                i{
+                    cursor: pointer;
+                }
+ 
+            }
+        } 
+ 
+        @include tabletsOnly {
+            #productlist {
+                flex-direction: row;
+                flex-wrap: wrap;
+ 
+                li {
+                    width: 50%;
+                }
             }
         }
     }
 
+        
+
     .footer {
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        height: 10vh;
         background-color: rgb(46, 69, 53);
         color: white;
         text-align: center;
+        min-height: 10vh;
+
+        div {
+            margin: 10px;
+        }
 
         a {
             color: white;
             font-size: large;
             padding: 5px;
+
         }
     }
-} 
+
+
+    @media screen and (min-width: 400px){
+        .footer {
+            flex-direction: row;
+            padding: 10px 0px 10px;
+        }
+    }
+}
+
+@include checkout;
+
+.confirmContainer {
+    background-color: rgba(31, 61, 31, 0.326);
+    color: rgb(46, 69, 53);            
+
+    height: auto;
+    min-height: 90vh;
+    background-position: center; 
+    background-size: cover;
+
+    display: flex; 
+    flex-direction: column;
+
+    @include menu;
+
+    .confirmMain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10vh;
+
+        p {
+            padding: 20px;
+        }
+
+        a {
+            position: absolute;
+            bottom: 20vh;
+            color: grey;
+        }
+    }
+}
+
+.paymentContainer {
+    background-color: rgba(31, 61, 31, 0.326);
+    color: rgb(46, 69, 53);            
+
+    height: auto;
+    min-height: 90vh;
+    background-position: center; 
+    background-size: cover;
+
+    .paymentMain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            padding: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin: 10px;
+
+            input {
+                width: 75%;
+                padding: 10px;
+                margin-top: 5px
+            }
+        }
+
+        i {
+            font-size: x-large;
+        }
+
+        .paymentBtn {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-left: auto;
+            margin-right: 15%;
+            padding-top: 5vh;
+
+            a {
+                text-decoration: none;
+                color: gray;
+                margin-right: 10px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            button {
+                border-radius: 25px;
+                margin-top: 10px;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+@include shoppingCartWindow;

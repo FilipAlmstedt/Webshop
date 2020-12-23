@@ -1,0 +1,63 @@
+@import '../../variables';
+
+/*Styling för hur en produkts info ska visas upp på sidan product.html inom div:en showProductDiv*/
+@mixin showProductDiv {
+    #showProductDiv {
+        display: $useFlex;
+        flex-direction: $useFlexDirectionColumn;
+        justify-content: $useSpaceBetween;
+        align-items: $useCenterForFlex;
+        padding-top: 2%;
+        background-color: rgba(31, 61, 31, 0.326);
+
+        .itemTitleAndImageDiv {
+            width:49vh;
+            text-align: center;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            display: $useFlex;
+            flex-direction: $useFlexDirectionColumn;
+            justify-content: $useCenterForFlex;
+            align-items: $useCenterForFlex;
+            img {
+                width: 45vh;
+                height: 70vh;
+                border-radius: 50%;
+            }
+        }
+        .descriptionsAndPriceDiv{
+            padding-top: 0.5%;
+            padding-bottom: 2%;
+            width: 40vh;
+            height: 30vh;
+            display: $useFlex;
+            flex-direction: $useFlexDirectionColumn;
+            justify-content: $useSpaceEvenly;
+            align-items: $useCenterForFlex;
+
+            h1{
+                text-align: center;
+            }
+
+            #addToShoppingCartOnProductSite {
+                width: 49%;
+                height: 20%;
+                text-align: center;
+                padding: 5%;
+                background-color: #165B33;
+                color: $welcomeContainerTextColor;
+                cursor: pointer;
+                border: none;
+                font-family: larger Arno Pro, Tribun ADF Std, serif;;
+                font-style: italic;
+                border-radius: 50%;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            } 
+            #addToShoppingCartOnProductSite:hover {
+                background-color: #BB2528; 
+                transition: background-color 0.4s ease-in-out;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+        }
+    }
+}
