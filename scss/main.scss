@@ -55,37 +55,35 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 70%;
-        margin: 0 auto;
+        width: 100%;
 
-        @media screen and (min-width: 768px) {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        .fa-shopping-cart {
+            &:hover {
+                cursor: pointer;
+                color: rgb(96, 96, 96);
+            }
         }
 
-
-        h2 {
+        h1 {
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
             padding-top: 2%;
         }
 
         #productlist {
-            
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 5vh;
 
             li {
                 list-style: none;
                 padding-top: 5%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 
-                @media screen and (min-width: 768px) {
-                   width: 30%; 
-                }
-            
-
                 img {
-                    width: 100%
+                    width: 50%
                 }
 
                 p {
@@ -96,7 +94,34 @@
             }
         } 
 
+        @include tabletsOnly {
+            #productlist {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
 
+                li {
+                    width: 50%;
+
+                    img {
+                        width: 60%;
+                    }
+                }
+            }
+        }
+
+        @include desktopsOnly{
+            #productlist {
+
+                li {
+                    width: 30%;
+
+                    img {
+                        width: 50%;
+                    }
+                }
+            }
+        }
     }
 
     .footer {
