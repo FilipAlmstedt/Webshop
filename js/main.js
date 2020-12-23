@@ -36,11 +36,19 @@ $(function() {
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     printProducts();
-    
+
+
     $.each(products, (i, product) => {
-        $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product},addItemToShoppingCart);
+        $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product}, addItemToShoppingCart);
         $("#goToProductSite"+product.id).on("click",{chosenProduct: product}, storeProductInLS);
-    });
+    })
+
+    //add total price of temporary shopping cart
+    for (let i = 0; i < shoppingCart.length; i++) {
+        totalPrice += shoppingCart[i].price;        
+    }
+    
+    createCheckoutHtml();
 });
 
 
@@ -50,12 +58,19 @@ function printProducts() {
         let container = $("#productlist");
         
         let listitem = $("<li>");
-      
-        $("<img>").addClass("image").attr('src', product.image).appendTo(listitem);
+
+        $("<img>").addClass("image").attr('src', product.image).attr("id", "goToProductSite"+product.id).appendTo(listitem)
+        .on("click", () => {
+            window.location.href = "html/product.html";
+        });
+
         $("<p>").html(product.price + "kr").addClass("price").appendTo(listitem);
-        $("<p>").html(product.name).addClass("name").appendTo(listitem);
-        $("<a>").attr("href", "html/product.html").attr("id","goToProductSite"+product.id).html("Gå till: " + product.name).appendTo(listitem);
-        $("<i>").addClass("fas fa-shopping-cart").attr("id","addToShoppingCart"+product.id).appendTo(listitem);
+        $("<p>").html(product.name).attr("id", "goToProductSite"+product.id).addClass("name").appendTo(listitem)
+        .on("click", () => {
+            window.location.href = "html/product.html";
+        });
+
+        $("<div>").addClass("fas fa-shopping-cart").attr("id", "addToShoppingCart"+product.id).appendTo(listitem);
 
         listitem.appendTo(container);
         container.appendTo($(".main"));
