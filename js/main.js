@@ -33,7 +33,7 @@ $(function() {
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
 
-  $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
+    $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     printProducts();
     
@@ -41,7 +41,6 @@ $(function() {
         $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product},addItemToShoppingCart);
         $("#goToProductSite"+product.id).on("click",{chosenProduct: product}, storeProductInLS);
     });
-    createCheckoutHtml();
 });
 
 
@@ -60,11 +59,7 @@ function printProducts() {
 
         listitem.appendTo(container);
         container.appendTo($(".main"));
-        
     });
-
-    
-    
 }
 
 /* Lägger id:et och produkterna i localstorage så vi kan använda dem på alla andra sidor också */
@@ -80,67 +75,6 @@ function updateLS(){
     localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
     localStorage.setItem("totalPrice", totalPrice);
 }
-
-
-function createCheckoutHtml () {
-    $('.shoppingCart').html('');
-
-    for (let i = 0; i < shoppingCart.length; i++) {
-
-        // get container - add divs
-        let productDiv = $('<div>').addClass('productDiv').appendTo($('.shoppingCart'));
-        let productImage = $('<img>').addClass('productImageCheckout').attr('src', "../"+shoppingCart[i].image).appendTo(productDiv);
-        let containerInfoAmount = $('<div>').addClass('containerInfoAmount').appendTo(productDiv);
-        let productInfo = $('<div>').addClass('productInfo').appendTo(containerInfoAmount);        
-        let productAmount = $('<div>').addClass('productAmount').appendTo(containerInfoAmount);  
-
-        // add product info - name, height, price
-        $('<p>').addClass('productName').html(shoppingCart[i].name).appendTo(productInfo);                
-        $('<p>').addClass('productHeight').html(shoppingCart[i].height + ' cm').appendTo(productInfo);                
-        $('<p>').addClass('productPrice').html(shoppingCart[i].price + ' SEK').appendTo(productInfo);  
-                
-        // add buttons + amount p tag
-        $('<button>').addClass('productButton').html('-').appendTo(productAmount).on('click', ()=> {subtractProductAmount(shoppingCart[i])});
-        $('<p>').html(shoppingCart[i].inCart).appendTo(productAmount);
-        $('<button>').addClass('productButton').html('+').appendTo(productAmount).on('click', ()=> {addProductAmount(shoppingCart[i])});
-    }
-
-    $('.totalPriceP').html("Totalt: " + totalPrice + " SEK");
-
-    // if cart is empty
-    if (shoppingCart.length == 0) {
-        $('<h4>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
-
-        $('#confirmPurchaseLink').attr("href", "#");
-
-        $('#confirmPurchaseButton').addClass("emptyCartButton");
-
-    }
-}
-
-// subtract products
-function subtractProductAmount (product){
-    product.inCart--
-    totalPrice -= product.price;
-
-    // splice product if amount = 0
-    if (product.inCart === 0) {
-        for (let i = 0; i < shoppingCart.length; i++) {
-            if (shoppingCart[i].id == product.id) {
-                shoppingCart.splice(i, 1);
-            }
-        }
-    };
-
-    createCheckoutHtml(); 
-};
-
-// add products
-function addProductAmount (product){
-    product.inCart++
-    totalPrice += product.price;
-    createCheckoutHtml();
-};
 
 /*Aktiverar klassen active i css som gör att navbar visas vertikalt i mobilen*/ 
 function openMobileNavbar(){
