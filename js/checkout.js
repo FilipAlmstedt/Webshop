@@ -30,7 +30,6 @@ $(function () {
     $(".toggle").on("click",openMobileNavbar);
 
     createCheckoutHtml();
-    console.log("hej");
 });
 
 /*Aktiverar klassen active i css som gör att navbar visas vertikalt i mobilen*/ 
@@ -46,6 +45,8 @@ function openMobileNavbar(){
 
 function createCheckoutHtml () {
     $('.shoppingCart').html('');
+
+    storeProductInLS();
 
     for (let i = 0; i < shoppingCart.length; i++) {
 

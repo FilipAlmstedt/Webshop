@@ -111,35 +111,7 @@
         }
     }
 
-        @include tabletsOnly {
-            #productlist {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-evenly;
-              
-                li {
-                    width: 50%;
-
-                    img {
-                        width: 60%;
-                    }
-                }
-            }
-        }
-
-        @include desktopsOnly{
-            #productlist {
-
-                li {
-                    width: 30%;
-
-                    img {
-                        width: 50%;
-                    }
-                }
-            }
-        }
-    }
+        
 
     .footer {
         display: flex;

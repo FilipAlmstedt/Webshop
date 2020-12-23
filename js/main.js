@@ -287,10 +287,11 @@ function addItemToShoppingCart(e){
         shoppingCart.push(e.data.chosenProduct);
         console.log("Du la till produkten: ", e.data.chosenProduct.name);
         totalPrice += e.data.chosenProduct.price; 
-
+        updateLS();
         checkShoppingCart();
     } else {
         totalPrice += e.data.chosenProduct.price;
+        updateLS();
         checkShoppingCart();
     }
 }
