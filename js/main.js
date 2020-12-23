@@ -16,7 +16,6 @@ shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
 
-
 let p1 = new Product('css/images/gran1.jpg', "Elise", "Elise är en mindre gran för dig som inte vill ha absolut största granen i huset. Passar att placera varsomhelst i ditt hus.",200, 100, 0);
 let p2 = new Product('css/images/gran2.png', "Kristoffer", " Kristoffer är en standardgran som passar för alla hus. Denna gran är vår populäraste gran.",100, 350, 0);
 let p3 = new Product('css/images/gran3.png', "Ivan", "För dig som vill ha lite extra för att göra julen så speciell som möjligt så är Ivan granen för dig. OBS! Julgranspyntet ingår inte", 250, 650, 0);
@@ -33,7 +32,8 @@ $(function() {
     modifyShoppingCart();
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
-    $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
+
+  $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     printProducts();
     
