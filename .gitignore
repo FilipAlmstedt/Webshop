@@ -2,3 +2,5 @@ node_modules/
 jquery-ui-1.12.1/
 package-lock.json
 css/main.css
+css/main.min.css
+html/debug.log

@@ -280,7 +280,8 @@
       align-items: center; }
       #wrapper #showProductDiv .itemTitleAndImageDiv img {
         width: 45vh;
-        height: 70vh; }
+        height: 70vh;
+        border-radius: 50%; }
     #wrapper #showProductDiv .descriptionsAndPriceDiv {
       padding-top: 0.5%;
       padding-bottom: 2%;
@@ -308,7 +309,8 @@
         align-items: center; }
         #wrapper #showProductDiv .itemTitleAndImageDiv img {
           width: 45vh;
-          height: 70vh; }
+          height: 70vh;
+          border-radius: 50%; }
       #wrapper #showProductDiv .descriptionsAndPriceDiv {
         height: 40vh;
         display: flex;
