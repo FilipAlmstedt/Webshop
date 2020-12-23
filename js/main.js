@@ -102,11 +102,11 @@ function modifyShoppingCart(){
         autoOpen: false,
         show: {
             effect: "blind",
-            duration: 1000       
+            duration: 500       
         },
         hide: {
             effect: "blind",
-            duration: 1000
+            duration: 500
         },
         minWidth: 350,
         minHeight: 100,
