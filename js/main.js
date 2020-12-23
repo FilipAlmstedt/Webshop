@@ -15,37 +15,26 @@ shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
 
-
-
-// temporary shopping cart while developing
-let tempShoppingCart = [];
-
-let p1 = new Product('css/images/gran1.jpg', "Elise", 200, 500, 0);
-let p2 = new Product('css/images/gran2.png', "Kristoffer", 100, 150, 0);
-let p3 = new Product('css/images/gran3.png', "Ivan", 250, 650, 0);
-let p4 = new Product('css/images/gran4.png', "Lydia", 70, 350, 0);
-let p5 = new Product('css/images/gran5.png', "Vera", 50, 200, 0);
-let p6 = new Product('css/images/gran6.png', "Jan", 300, 800, 0);
+let p1 = new Product('../css/images/gran1.jpg', "Elise", 200, 500, 0);
+let p2 = new Product('../css/images/gran2.png', "Kristoffer", 100, 150, 0);
+let p3 = new Product('../css/images/gran3.png', "Ivan", 250, 650, 0);
+let p4 = new Product('../css/images/gran4.png', "Lydia", 70, 350, 0);
+let p5 = new Product('../css/images/gran5.png', "Vera", 50, 200, 0);
+let p6 = new Product('../css/images/gran6.png', "Jan", 300, 800, 0);
 
 let products = [p1, p2, p3, p4, p5, p6];
-
-
 
 $(function() {
 
     $(".toggle").on("click",openMobileNavbar);
 
-
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
-
 
     checkShoppingCart();
 
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     printProducts();
-
-
     
     createCheckoutHtml();
 
@@ -105,7 +94,6 @@ function createCheckoutHtml () {
         $('<h4>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
 
         $('#confirmPurchaseLink').attr("href", "#");
-        $('#confirmPurchaseButton').addClass(emptyCartButton);
     }
 }
 
