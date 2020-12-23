@@ -33,14 +33,15 @@ $(function() {
     modifyShoppingCart();
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
-
+    $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     printProducts();
+    
     $.each(products, (i, product) => {
         $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product},addItemToShoppingCart);
         $("#goToProductSite"+product.id).on("click",{chosenProduct: product}, storeProductInLS);
     });
-    //createCheckoutHtml();
+    createCheckoutHtml();
 });
 
 
@@ -111,7 +112,9 @@ function createCheckoutHtml () {
         $('<h4>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
 
         $('#confirmPurchaseLink').attr("href", "#");
+
         $('#confirmPurchaseButton').addClass("emptyCartButton");
+
     }
 }
 
