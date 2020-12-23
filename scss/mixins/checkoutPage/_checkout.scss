@@ -1,35 +1,24 @@
 @import 'scss/mixins/_responsive.scss';
+@import '../../variables/colors';
+@import '../../variables/flexVariables';
 
-#wrapper { 
+@mixin checkout {
+    
     .checkoutContainer {
-
-        background-color: rgba(31, 61, 31, 0.326);
+    
         color: rgb(46, 69, 53);            
-
-        height: auto;
         min-height: 90vh;
-        background-position: center; 
-        background-size: cover;
 
-        display: flex; 
-        flex-direction: column;
- 
         @include menu;
-
+        
         .checkoutMain {
-            margin: 0;
-            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 30px;
 
-            h1 {
-                color: rgb(46, 69, 53);   
-            }
-
             .shoppingCart {
-                padding-top: 30px;
+                padding-top: 20px;
                 width: 100%; 
 
                 .productDiv {
@@ -119,60 +108,17 @@
         }
 
         @include tabletsOnly {
-            .menu {
-                justify-content: center;
-                .logo {
-                    flex: 1;
-                }
-                .item.button {
-                    width: auto;
-                    order: 1;
-                    display: block;
-                }
-                .toggle {
-                    order: 2;
-                }
-            }
-
             .productImageCheckout {
                 width: 30% !important;
-                background-color: white;
             }
 
             .containerInfoAmount {
                 flex-direction: row !important;
                 justify-content: space-around !important;
-                    
-                .productInfo {
-                    display: flex;
-                    flex-direction: row-reverse;
-                }
             }
         }
 
         @include desktopsOnly { 
-            .menu {
-                .item {
-                    display: block;
-                    width: auto;
-                }
-                .logo {
-                    order: 0;
-                }
-                .item {
-                    order: 1;
-                }
-                li {
-                    padding: 15px 10px;
-                }
-                .toggle {
-                    display: none;
-                }
-                .menu li.button {
-                    padding-right: 0;
-                } 
-            } 
-
             .shoppingCart {
                 width: 80% !important; 
 

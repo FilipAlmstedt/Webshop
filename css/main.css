@@ -4,217 +4,22 @@
 /*Styling av en div som innehåller en välkomstext*/
 /*Variabler som används till flexade element*/
 /*Div som innehåller en pil som länkar till alla produkter som ligger under pilen.*/
-/*Allt inom min navbar*/
 /*Mixins för responsivteten på sidan*/
 /*Variabler som används till flexade element*/
 /*Mixin som hantera allt responsivt inom welcomeContainer-div:en*/
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  scroll-behavior: smooth; }
-
-@font-face {
-  font-family: MerryChristmasStar;
-  src: url(Webshop\css\fonts\MerryChristmasStar.ttf); }
-
-#wrapper .checkoutContainer {
-  background-color: rgba(31, 61, 31, 0.326);
-  color: #2e4535;
-  height: auto;
-  min-height: 90vh;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column; }
-  #wrapper .checkoutContainer .menu {
-    background-color: rgba(240, 240, 240, 0.6);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    list-style-type: none;
-    /*headern för loggan*/
-    /*Alla li länkar i navbaren*/
-    /*Denna klass aktiveras när hamburgar-ikonen klickas i*/
-    /*Hela hamburgar-ikonen*/ }
-    #wrapper .checkoutContainer .menu li {
-      font-size: 16px;
-      padding: 15px 5px;
-      white-space: nowrap; }
-      #wrapper .checkoutContainer .menu li a {
-        color: black;
-        text-decoration: none; }
-      #wrapper .checkoutContainer .menu li a:hover {
-        text-decoration: underline; }
-    #wrapper .checkoutContainer .menu .logo a:hover {
-      text-decoration: none;
-      color: red;
-      transition: color 0.2s ease-out; }
-    #wrapper .checkoutContainer .menu .logo a {
-      font-size: 25px;
-      color: #165B33; }
-    #wrapper .checkoutContainer .menu .item {
-      width: 100%;
-      text-align: center;
-      order: 3;
-      display: none; }
-      #wrapper .checkoutContainer .menu .item a:hover {
-        color: red;
-        transition: color 0.2s ease; }
-    #wrapper .checkoutContainer .menu .item.button {
-      order: 2;
-      transition: all .2s ease; }
-    #wrapper .checkoutContainer .menu .item.active {
-      display: flex;
-      flex-direction: column;
-      transition: height .2s ease; }
-    #wrapper .checkoutContainer .menu .toggle {
-      cursor: pointer;
-      order: 1;
-      margin-right: 1.5%;
-      margin-bottom: 1.5%;
-      /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/ }
-      #wrapper .checkoutContainer .menu .toggle .bars {
-        background: white;
-        display: inline-block;
-        height: 2px;
-        position: relative;
-        width: 18px; }
-      #wrapper .checkoutContainer .menu .toggle .bars:before,
-      #wrapper .checkoutContainer .menu .toggle .bars:after {
-        background: white;
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        width: 100%; }
-      #wrapper .checkoutContainer .menu .toggle .bars:before {
-        top: 5px; }
-      #wrapper .checkoutContainer .menu .toggle .bars:after {
-        top: -5px; }
-  #wrapper .checkoutContainer .checkoutMain {
-    margin: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px; }
-    #wrapper .checkoutContainer .checkoutMain h1 {
-      color: #2e4535; }
-    #wrapper .checkoutContainer .checkoutMain .shoppingCart {
-      padding-top: 30px;
-      width: 100%; }
-      #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv {
-        display: flex;
-        justify-content: space-evenly;
-        margin: 10px; }
-        #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .productImageCheckout {
-          width: 50%; }
-        #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 50%; }
-          #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount .productInfo {
-            display: flex;
-            flex-direction: column; }
-          #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount .productAmount {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 20px; }
-            #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount .productAmount p {
-              padding: 5px; }
-            #wrapper .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount .productAmount button {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              padding: 10px;
-              height: 20px;
-              width: 20px;
-              border-radius: 25px; }
-      #wrapper .checkoutContainer .checkoutMain .shoppingCart .emptyCheckoutCart {
-        display: flex;
-        justify-content: center;
-        color: rgba(255, 255, 255, 0.707); }
-    #wrapper .checkoutContainer .checkoutMain .totalDiv {
-      margin: auto;
-      margin-right: 0;
-      display: flex;
-      flex-direction: column;
-      padding: 10px; }
-      #wrapper .checkoutContainer .checkoutMain .totalDiv p {
-        align-self: flex-end;
-        margin: 10px;
-        font-weight: bold;
-        font-size: large; }
-      #wrapper .checkoutContainer .checkoutMain .totalDiv .checkoutBtn {
-        display: flex;
-        align-items: center; }
-        #wrapper .checkoutContainer .checkoutMain .totalDiv .checkoutBtn a {
-          text-decoration: none;
-          color: gray;
-          margin-right: 10px; }
-          #wrapper .checkoutContainer .checkoutMain .totalDiv .checkoutBtn a:hover {
-            text-decoration: underline; }
-        #wrapper .checkoutContainer .checkoutMain .totalDiv .checkoutBtn button {
-          border-radius: 25px;
-          padding: 5px; }
-  @media screen and (min-width: 768px) {
-    #wrapper .checkoutContainer .menu {
-      justify-content: center; }
-      #wrapper .checkoutContainer .menu .logo {
-        flex: 1; }
-      #wrapper .checkoutContainer .menu .item.button {
-        width: auto;
-        order: 1;
-        display: block; }
-      #wrapper .checkoutContainer .menu .toggle {
-        order: 2; }
-    #wrapper .checkoutContainer .productImageCheckout {
-      width: 30% !important;
-      background-color: white; }
-    #wrapper .checkoutContainer .containerInfoAmount {
-      flex-direction: row !important;
-      justify-content: space-around !important; }
-      #wrapper .checkoutContainer .containerInfoAmount .productInfo {
-        display: flex;
-        flex-direction: row-reverse; } }
-  @media screen and (min-width: 1024px) {
-    #wrapper .checkoutContainer .menu .item {
-      display: block;
-      width: auto; }
-    #wrapper .checkoutContainer .menu .logo {
-      order: 0; }
-    #wrapper .checkoutContainer .menu .item {
-      order: 1; }
-    #wrapper .checkoutContainer .menu li {
-      padding: 15px 10px; }
-    #wrapper .checkoutContainer .menu .toggle {
-      display: none; }
-    #wrapper .checkoutContainer .menu .menu li.button {
-      padding-right: 0; }
-    #wrapper .checkoutContainer .shoppingCart {
-      width: 80% !important; }
-      #wrapper .checkoutContainer .shoppingCart .productDiv {
-        display: flex;
-        justify-content: space-evenly;
-        margin: 10px; }
-        #wrapper .checkoutContainer .shoppingCart .productDiv .productImageCheckout {
-          width: 20% !important;
-          background-color: white; }
-        #wrapper .checkoutContainer .shoppingCart .productDiv .containerInfoAmount {
-          flex-direction: row !important;
-          justify-content: space-around !important; }
-          #wrapper .checkoutContainer .shoppingCart .productDiv .containerInfoAmount .productInfo {
-            display: flex;
-            flex-direction: row-reverse; } }
-
+/*Mixins för responsivteten på sidan*/
 /*Variabler som används till flexade element*/
-
+/*Allt inom min navbar*/
+/*Variabler som används till flexade element*/
+/*Variabler som används till flexade element*/
+/*Mixins för responsivteten på sidan*/
+/*Variabler som används till flexade element*/
+/*Variabler som används till flexade element*/
+/*Styling för hur en produkts info ska visas upp på sidan product.html inom div:en showProductDiv*/
+/*Mixins för responsivteten på sidan*/
+/*Variabler som används till flexade element*/
+/*Responsiv styling av product.html inom div:en showProductDiv*/
+/*Variabler som används till flexade element*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -226,21 +31,21 @@
   src: url(../css/fonts/MerryChristmasStar.ttf); }
 
 #wrapper {
-  background-color: #cccccc; }
-  
-#wrapper .welcomeContainer {
-  /*Basstyling för hela welcomeContainer-div:en*/
-  background-image: url("images/backgroundwallpaper.jpg");
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
   font-family: Helvetica;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background-color: #cccccc;
   /*För surfplattor*/
   /*För desktops*/ }
- 
+  #wrapper .welcomeContainer {
+    /*Basstyling för hela welcomeContainer-div:en*/
+    background-image: url("images/backgroundwallpaper.jpg");
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*För surfplattor*/
+    /*För desktops*/ }
     #wrapper .welcomeContainer .menu {
       background-color: rgba(240, 240, 240, 0.6);
       display: flex;
@@ -261,60 +66,24 @@
           text-decoration: none; }
         #wrapper .welcomeContainer .menu li a:hover {
           text-decoration: underline; }
-#wrapper .welcomeContainer .menu .logo {
-      font-family: larger Arno Pro, Tribun ADF Std, serif;
-      font-style: italic; }
-      #wrapper .welcomeContainer .menu .logo a:hover {
-        text-decoration: none;
-        color: red;
-        transition: color 0.2s ease-out; }
-      #wrapper .welcomeContainer .menu .logo a {
-        font-size: 25px;
-        color: #165B33; }
-    #wrapper .welcomeContainer .menu .item {
-      width: 100%;
-      text-align: center;
-      order: 3;
-      display: none; }
-      #wrapper .welcomeContainer .menu .item a:hover {
-        color: red;
-        transition: color 0.2s ease; }
-    #wrapper .welcomeContainer .menu .item.button {
-      order: 2;
-      transition: all .2s ease; }
-    #wrapper .welcomeContainer .menu .item.active {
-      display: flex;
-      flex-direction: column;
-      transition: height .2s ease; }
-    #wrapper .welcomeContainer .menu .toggle {
-      cursor: pointer;
-      order: 1;
-      margin-right: 1.5%;
-      margin-bottom: 1.5%;
-      /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/ }
-      #wrapper .welcomeContainer .menu .toggle .bars {
-        background: white;
-        display: inline-block;
-        height: 2px;
-        position: relative;
-        width: 18px; }
-      #wrapper .welcomeContainer .menu .toggle .bars:before,
-      #wrapper .welcomeContainer .menu .toggle .bars:after {
-        background: white;
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        width: 100%; }
-      #wrapper .welcomeContainer .menu .toggle .bars:before {
-        top: 5px; }
-      #wrapper .welcomeContainer .menu .toggle .bars:after {
-        top: -5px; }
-  @media screen and (min-width: 768px) {
-    #wrapper .welcomeContainer .menu {
-      justify-content: center; }
       #wrapper .welcomeContainer .menu .logo {
-        flex: 1; }
+        font-family: larger Arno Pro, Tribun ADF Std, serif;
+        font-style: italic; }
+        #wrapper .welcomeContainer .menu .logo a:hover {
+          text-decoration: none;
+          color: red;
+          transition: color 0.2s ease-out; }
+        #wrapper .welcomeContainer .menu .logo a {
+          font-size: 25px;
+          color: #165B33; }
+      #wrapper .welcomeContainer .menu .item {
+        width: 100%;
+        text-align: center;
+        order: 3;
+        display: none; }
+        #wrapper .welcomeContainer .menu .item a:hover {
+          color: red;
+          transition: color 0.2s ease; }
       #wrapper .welcomeContainer .menu .item.button {
         order: 2;
         transition: all .2s ease; }
@@ -329,14 +98,14 @@
         margin-bottom: 1.5%;
         /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/ }
         #wrapper .welcomeContainer .menu .toggle .bars {
-          background: white;
+          background: #165B33;
           display: inline-block;
           height: 2px;
           position: relative;
           width: 18px; }
         #wrapper .welcomeContainer .menu .toggle .bars:before,
         #wrapper .welcomeContainer .menu .toggle .bars:after {
-          background: white;
+          background: #165B33;
           content: '';
           display: block;
           height: 100%;
@@ -346,7 +115,7 @@
           top: 5px; }
         #wrapper .welcomeContainer .menu .toggle .bars:after {
           top: -5px; }
-    @media screen and (min-width: 468px) {
+    @media screen and (min-width: 768px) {
       #wrapper .welcomeContainer .menu {
         justify-content: center; }
         #wrapper .welcomeContainer .menu .logo {
@@ -357,7 +126,7 @@
           display: block; }
         #wrapper .welcomeContainer .menu .toggle {
           order: 2; } }
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 1024px) {
       #wrapper .welcomeContainer .menu .item {
         display: block;
         width: auto; }
@@ -368,34 +137,6 @@
       #wrapper .welcomeContainer .menu li {
         padding: 15px 10px; }
       #wrapper .welcomeContainer .menu .toggle {
-        order: 2; } }
-  @media screen and (min-width: 1024px) {
-    #wrapper .welcomeContainer .menu .item {
-      display: block;
-      width: auto; }
-    #wrapper .welcomeContainer .menu .logo {
-      order: 0; }
-    #wrapper .welcomeContainer .menu .item {
-      order: 1; }
-    #wrapper .welcomeContainer .menu li {
-      padding: 15px 10px; }
-    #wrapper .welcomeContainer .menu .toggle {
-      display: none; }
-    #wrapper .welcomeContainer .menu .menu li.button {
-      padding-right: 0; } }
-  #wrapper .welcomeContainer .welcomeSectionContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 25vh; }
-    #wrapper .welcomeContainer .welcomeSectionContainer .welcomeSection {
-      padding: 6%;
-      font-family: Helvetica;
-      text-align: center;
-      color: #FBF5E9;
-      font-size: 20px; }
-  #wrapper .welcomeContainer .arrowDivContainer {
         display: none; }
       #wrapper .welcomeContainer .menu .menu li.button {
         padding-right: 0; } }
@@ -409,7 +150,7 @@
         padding: 6%;
         font-family: Helvetica;
         text-align: center;
-        color: #FBF5E9;
+        color: #CC231E;
         font-size: 20px; }
         #wrapper .welcomeContainer .welcomeSectionContainer .welcomeSection h1 {
           font-family: MerryChristmasStar;
@@ -428,6 +169,172 @@
       #wrapper .welcomeContainer .arrowDivContainer .arrowDiv a:hover {
         color: #FBF5E9;
         transition: color 0.2s ease-in-out; }
+  #wrapper .menu {
+    background-color: rgba(240, 240, 240, 0.6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    /*headern för loggan*/
+    /*Alla li länkar i navbaren*/
+    /*Denna klass aktiveras när hamburgar-ikonen klickas i*/
+    /*Hela hamburgar-ikonen*/ }
+    #wrapper .menu li {
+      font-size: 16px;
+      padding: 15px 5px;
+      white-space: nowrap; }
+      #wrapper .menu li a {
+        color: black;
+        text-decoration: none; }
+      #wrapper .menu li a:hover {
+        text-decoration: underline; }
+    #wrapper .menu .logo {
+      font-family: larger Arno Pro, Tribun ADF Std, serif;
+      font-style: italic; }
+      #wrapper .menu .logo a:hover {
+        text-decoration: none;
+        color: red;
+        transition: color 0.2s ease-out; }
+      #wrapper .menu .logo a {
+        font-size: 25px;
+        color: #165B33; }
+    #wrapper .menu .item {
+      width: 100%;
+      text-align: center;
+      order: 3;
+      display: none; }
+      #wrapper .menu .item a:hover {
+        color: red;
+        transition: color 0.2s ease; }
+    #wrapper .menu .item.button {
+      order: 2;
+      transition: all .2s ease; }
+    #wrapper .menu .item.active {
+      display: flex;
+      flex-direction: column;
+      transition: height .2s ease; }
+    #wrapper .menu .toggle {
+      cursor: pointer;
+      order: 1;
+      margin-right: 1.5%;
+      margin-bottom: 1.5%;
+      /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/ }
+      #wrapper .menu .toggle .bars {
+        background: #165B33;
+        display: inline-block;
+        height: 2px;
+        position: relative;
+        width: 18px; }
+      #wrapper .menu .toggle .bars:before,
+      #wrapper .menu .toggle .bars:after {
+        background: #165B33;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%; }
+      #wrapper .menu .toggle .bars:before {
+        top: 5px; }
+      #wrapper .menu .toggle .bars:after {
+        top: -5px; }
+  @media screen and (min-width: 768px) {
+    #wrapper .menu {
+      justify-content: center; }
+      #wrapper .menu .logo {
+        flex: 1; }
+      #wrapper .menu .item.button {
+        width: auto;
+        order: 1;
+        display: block; }
+      #wrapper .menu .toggle {
+        order: 2; } }
+  @media screen and (min-width: 1024px) {
+    #wrapper .menu .item {
+      display: block;
+      width: auto; }
+    #wrapper .menu .logo {
+      order: 0; }
+    #wrapper .menu .item {
+      order: 1; }
+    #wrapper .menu li {
+      padding: 15px 10px; }
+    #wrapper .menu .toggle {
+      display: none; }
+    #wrapper .menu .menu li.button {
+      padding-right: 0; } }
+  #wrapper #showProductDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2%;
+    background-color: rgba(31, 61, 31, 0.326); }
+    #wrapper #showProductDiv .itemTitleAndImageDiv {
+      width: 49vh;
+      text-align: center;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      #wrapper #showProductDiv .itemTitleAndImageDiv img {
+        width: 45vh;
+        height: 70vh;
+        border-radius: 50%; }
+    #wrapper #showProductDiv .descriptionsAndPriceDiv {
+      padding-top: 0.5%;
+      padding-bottom: 2%;
+      width: 40vh;
+      height: 30vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center; }
+      #wrapper #showProductDiv .descriptionsAndPriceDiv h1 {
+        text-align: center; }
+      #wrapper #showProductDiv .descriptionsAndPriceDiv #addToShoppingCartOnProductSite {
+        width: 49%;
+        height: 20%;
+        text-align: center;
+        padding: 5%;
+        background-color: #165B33;
+        color: #FBF5E9;
+        cursor: pointer;
+        border: none;
+        font-family: larger Arno Pro, Tribun ADF Std, serif;
+        font-style: italic;
+        border-radius: 50%;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+      #wrapper #showProductDiv .descriptionsAndPriceDiv #addToShoppingCartOnProductSite:hover {
+        background-color: #BB2528;
+        transition: background-color 0.4s ease-in-out;
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); }
+  @media screen and (min-width: 1024px) {
+    #wrapper #showProductDiv {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-top: 2%; }
+      #wrapper #showProductDiv .itemTitleAndImageDiv {
+        margin-top: 2%;
+        margin-bottom: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+        #wrapper #showProductDiv .itemTitleAndImageDiv img {
+          width: 45vh;
+          height: 70vh;
+          border-radius: 50%; }
+      #wrapper #showProductDiv .descriptionsAndPriceDiv {
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start; } }
   #wrapper .main {
     display: flex;
     flex-direction: column;
@@ -435,16 +342,16 @@
     align-items: center;
     width: 70%;
     margin: 0 auto; }
-    #wrapper .main h2 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      padding-top: 2%; }
     @media screen and (min-width: 768px) {
-      #wrapper .main #productlist {
+      #wrapper .main {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between; } }
+    #wrapper .main h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      padding-top: 2%; }
     #wrapper .main #productlist li {
       list-style: none;
       padding-top: 5%; }
@@ -456,27 +363,318 @@
       #wrapper .main #productlist li p {
         font-family: 'Poppins', sans-serif;
         font-weight: 200; }
-
-#wrapper .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #2e4535;
-  color: white;
-  text-align: center;
-  min-height: 10vh; }
-  #wrapper .footer div {
-    margin: 10px; }
-  #wrapper .footer a {
-    color: white;
-    font-size: large;
-    padding: 5px; }
-
-@media screen and (min-width: 400px) {
   #wrapper .footer {
-    flex-direction: row;
-    padding: 10px 0px 10px; } }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #2e4535;
+    color: white;
+    text-align: center;
+    min-height: 10vh; }
+    #wrapper .footer div {
+      margin: 10px; }
+    #wrapper .footer a {
+      color: white;
+      font-size: large;
+      padding: 5px; }
+  @media screen and (min-width: 400px) {
+    #wrapper .footer {
+      flex-direction: row;
+      padding: 10px 0px 10px; } }
+
+.checkoutContainer {
+  color: #2e4535;
+  min-height: 90vh; }
+  .checkoutContainer .menu {
+    background-color: rgba(240, 240, 240, 0.6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    /*headern för loggan*/
+    /*Alla li länkar i navbaren*/
+    /*Denna klass aktiveras när hamburgar-ikonen klickas i*/
+    /*Hela hamburgar-ikonen*/ }
+    .checkoutContainer .menu li {
+      font-size: 16px;
+      padding: 15px 5px;
+      white-space: nowrap; }
+      .checkoutContainer .menu li a {
+        color: black;
+        text-decoration: none; }
+      .checkoutContainer .menu li a:hover {
+        text-decoration: underline; }
+    .checkoutContainer .menu .logo {
+      font-family: larger Arno Pro, Tribun ADF Std, serif;
+      font-style: italic; }
+      .checkoutContainer .menu .logo a:hover {
+        text-decoration: none;
+        color: red;
+        transition: color 0.2s ease-out; }
+      .checkoutContainer .menu .logo a {
+        font-size: 25px;
+        color: #165B33; }
+    .checkoutContainer .menu .item {
+      width: 100%;
+      text-align: center;
+      order: 3;
+      display: none; }
+      .checkoutContainer .menu .item a:hover {
+        color: red;
+        transition: color 0.2s ease; }
+    .checkoutContainer .menu .item.button {
+      order: 2;
+      transition: all .2s ease; }
+    .checkoutContainer .menu .item.active {
+      display: flex;
+      flex-direction: column;
+      transition: height .2s ease; }
+    .checkoutContainer .menu .toggle {
+      cursor: pointer;
+      order: 1;
+      margin-right: 1.5%;
+      margin-bottom: 1.5%;
+      /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/ }
+      .checkoutContainer .menu .toggle .bars {
+        background: #165B33;
+        display: inline-block;
+        height: 2px;
+        position: relative;
+        width: 18px; }
+      .checkoutContainer .menu .toggle .bars:before,
+      .checkoutContainer .menu .toggle .bars:after {
+        background: #165B33;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%; }
+      .checkoutContainer .menu .toggle .bars:before {
+        top: 5px; }
+      .checkoutContainer .menu .toggle .bars:after {
+        top: -5px; }
+  .checkoutContainer .checkoutMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px; }
+    .checkoutContainer .checkoutMain .shoppingCart {
+      padding-top: 20px;
+      width: 100%; }
+      .checkoutContainer .checkoutMain .shoppingCart .productDiv {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 10px; }
+        .checkoutContainer .checkoutMain .shoppingCart .productDiv .productImageCheckout {
+          width: 50%; }
+        .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 50%; }
+          .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount .productInfo {
+            display: flex;
+            flex-direction: column; }
+          .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount .productAmount {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px; }
+            .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount .productAmount p {
+              padding: 5px; }
+            .checkoutContainer .checkoutMain .shoppingCart .productDiv .containerInfoAmount .productAmount button {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 10px;
+              height: 20px;
+              width: 20px;
+              border-radius: 25px; }
+      .checkoutContainer .checkoutMain .shoppingCart .emptyCheckoutCart {
+        display: flex;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.707); }
+    .checkoutContainer .checkoutMain .totalDiv {
+      margin: auto;
+      margin-right: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 10px; }
+      .checkoutContainer .checkoutMain .totalDiv p {
+        align-self: flex-end;
+        margin: 10px;
+        font-weight: bold;
+        font-size: large; }
+      .checkoutContainer .checkoutMain .totalDiv .checkoutBtn {
+        display: flex;
+        align-items: center; }
+        .checkoutContainer .checkoutMain .totalDiv .checkoutBtn a {
+          text-decoration: none;
+          color: gray;
+          margin-right: 10px; }
+          .checkoutContainer .checkoutMain .totalDiv .checkoutBtn a:hover {
+            text-decoration: underline; }
+        .checkoutContainer .checkoutMain .totalDiv .checkoutBtn button {
+          border-radius: 25px;
+          padding: 5px; }
+  @media screen and (min-width: 768px) {
+    .checkoutContainer .productImageCheckout {
+      width: 30% !important; }
+    .checkoutContainer .containerInfoAmount {
+      flex-direction: row !important;
+      justify-content: space-around !important; } }
+  @media screen and (min-width: 1024px) {
+    .checkoutContainer .shoppingCart {
+      width: 80% !important; }
+      .checkoutContainer .shoppingCart .productDiv {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 10px; }
+        .checkoutContainer .shoppingCart .productDiv .productImageCheckout {
+          width: 20% !important;
+          background-color: white; }
+        .checkoutContainer .shoppingCart .productDiv .containerInfoAmount {
+          flex-direction: row !important;
+          justify-content: space-around !important; }
+          .checkoutContainer .shoppingCart .productDiv .containerInfoAmount .productInfo {
+            display: flex;
+            flex-direction: row-reverse; } }
+
+.confirmContainer {
+  background-color: rgba(31, 61, 31, 0.326);
+  color: #2e4535;
+  height: auto;
+  min-height: 90vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column; }
+  .confirmContainer .menu {
+    background-color: rgba(240, 240, 240, 0.6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    /*headern för loggan*/
+    /*Alla li länkar i navbaren*/
+    /*Denna klass aktiveras när hamburgar-ikonen klickas i*/
+    /*Hela hamburgar-ikonen*/ }
+    .confirmContainer .menu li {
+      font-size: 16px;
+      padding: 15px 5px;
+      white-space: nowrap; }
+      .confirmContainer .menu li a {
+        color: black;
+        text-decoration: none; }
+      .confirmContainer .menu li a:hover {
+        text-decoration: underline; }
+    .confirmContainer .menu .logo {
+      font-family: larger Arno Pro, Tribun ADF Std, serif;
+      font-style: italic; }
+      .confirmContainer .menu .logo a:hover {
+        text-decoration: none;
+        color: red;
+        transition: color 0.2s ease-out; }
+      .confirmContainer .menu .logo a {
+        font-size: 25px;
+        color: #165B33; }
+    .confirmContainer .menu .item {
+      width: 100%;
+      text-align: center;
+      order: 3;
+      display: none; }
+      .confirmContainer .menu .item a:hover {
+        color: red;
+        transition: color 0.2s ease; }
+    .confirmContainer .menu .item.button {
+      order: 2;
+      transition: all .2s ease; }
+    .confirmContainer .menu .item.active {
+      display: flex;
+      flex-direction: column;
+      transition: height .2s ease; }
+    .confirmContainer .menu .toggle {
+      cursor: pointer;
+      order: 1;
+      margin-right: 1.5%;
+      margin-bottom: 1.5%;
+      /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/ }
+      .confirmContainer .menu .toggle .bars {
+        background: #165B33;
+        display: inline-block;
+        height: 2px;
+        position: relative;
+        width: 18px; }
+      .confirmContainer .menu .toggle .bars:before,
+      .confirmContainer .menu .toggle .bars:after {
+        background: #165B33;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%; }
+      .confirmContainer .menu .toggle .bars:before {
+        top: 5px; }
+      .confirmContainer .menu .toggle .bars:after {
+        top: -5px; }
+  .confirmContainer .confirmMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh; }
+    .confirmContainer .confirmMain p {
+      padding: 20px; }
+    .confirmContainer .confirmMain a {
+      position: absolute;
+      bottom: 20vh;
+      color: grey; }
+
+.paymentContainer {
+  background-color: rgba(31, 61, 31, 0.326);
+  color: #2e4535;
+  height: auto;
+  min-height: 90vh;
+  background-position: center;
+  background-size: cover; }
+  .paymentContainer .paymentMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .paymentContainer .paymentMain h1 {
+      padding: 15px; }
+    .paymentContainer .paymentMain form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin: 10px; }
+      .paymentContainer .paymentMain form input {
+        width: 75%;
+        padding: 10px;
+        margin-top: 5px; }
+    .paymentContainer .paymentMain i {
+      font-size: x-large; }
+    .paymentContainer .paymentMain .paymentBtn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-left: auto;
+      margin-right: 15%;
+      padding-top: 5vh; }
+      .paymentContainer .paymentMain .paymentBtn a {
+        text-decoration: none;
+        color: gray;
+        margin-right: 10px; }
+        .paymentContainer .paymentMain .paymentBtn a:hover {
+          text-decoration: underline; }
+      .paymentContainer .paymentMain .paymentBtn button {
+        border-radius: 25px;
+        margin-top: 10px;
+        padding: 5px; }
 
 /*Klassen som finns i JQuerys egna bibliotek. La till custom styling*/
 .ui-dialog {
@@ -545,93 +743,6 @@
   align-items: center;
   margin-top: 2%;
   margin-bottom: 2%; }
-
-.confirmContainer {
-  background-color: rgba(31, 61, 31, 0.326);
-  color: #2e4535;
-  height: auto;
-  min-height: 90vh;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column; }
-  .confirmContainer .menu {
-    background-color: rgba(240, 240, 240, 0.6);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    list-style-type: none;
-    /*headern för loggan*/
-    /*Alla li länkar i navbaren*/
-    /*Denna klass aktiveras när hamburgar-ikonen klickas i*/
-    /*Hela hamburgar-ikonen*/ }
-    .confirmContainer .menu li {
-      font-size: 16px;
-      padding: 15px 5px;
-      white-space: nowrap; }
-      .confirmContainer .menu li a {
-        color: black;
-        text-decoration: none; }
-      .confirmContainer .menu li a:hover {
-        text-decoration: underline; }
-    .confirmContainer .menu .logo a:hover {
-      text-decoration: none;
-      color: red;
-      transition: color 0.2s ease-out; }
-    .confirmContainer .menu .logo a {
-      font-size: 25px;
-      color: #165B33; }
-    .confirmContainer .menu .item {
-      width: 100%;
-      text-align: center;
-      order: 3;
-      display: none; }
-      .confirmContainer .menu .item a:hover {
-        color: red;
-        transition: color 0.2s ease; }
-    .confirmContainer .menu .item.button {
-      order: 2;
-      transition: all .2s ease; }
-    .confirmContainer .menu .item.active {
-      display: flex;
-      flex-direction: column;
-      transition: height .2s ease; }
-    .confirmContainer .menu .toggle {
-      cursor: pointer;
-      order: 1;
-      margin-right: 1.5%;
-      margin-bottom: 1.5%;
-      /*Hamburgar-ikonen är gjorda med tre streck som heter bars*/ }
-      .confirmContainer .menu .toggle .bars {
-        background: white;
-        display: inline-block;
-        height: 2px;
-        position: relative;
-        width: 18px; }
-      .confirmContainer .menu .toggle .bars:before,
-      .confirmContainer .menu .toggle .bars:after {
-        background: white;
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        width: 100%; }
-      .confirmContainer .menu .toggle .bars:before {
-        top: 5px; }
-      .confirmContainer .menu .toggle .bars:after {
-        top: -5px; }
-  .confirmContainer .confirmMain {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10vh; }
-    .confirmContainer .confirmMain p {
-      padding: 20px; }
-    .confirmContainer .confirmMain a {
-      position: absolute;
-      bottom: 20vh;
-      color: grey; }
   #shoppingCartWindow .shoppingCartContainer .shoppingCartButtonDiv .shoppingCartButtons {
     width: 49%;
     height: 20%;

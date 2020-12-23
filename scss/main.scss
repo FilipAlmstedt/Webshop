@@ -15,7 +15,9 @@
 
 #wrapper {
 
+    font-family:  Helvetica;
     background-color: #cccccc;
+
 
     .welcomeContainer {
 
@@ -25,12 +27,10 @@
         background-position: center;
         background-size: cover; 
 
-        font-family:  Helvetica;
-
         display: $useFlex;
         flex-direction: $useFlexDirectionColumn;
         justify-content: $useSpaceBetween;
-        
+         
         @include menu;
 
         @include welcomeContainerResponsive;
@@ -41,7 +41,15 @@
 
     }
 
-      
+
+    @include menu;
+
+    @include welcomeContainerResponsive;
+
+    @include showProductDiv;
+
+    @include responsiveProductDiv;
+
     .main {
         display: flex;
         flex-direction: column;
@@ -90,7 +98,7 @@
 
 
     }
-  
+
     .footer {
         display: flex;
         flex-direction: column;
@@ -113,84 +121,16 @@
         }
     }
 
+
     @media screen and (min-width: 400px){
         .footer {
             flex-direction: row;
             padding: 10px 0px 10px;
         }
     }
-
-
 }
 
-#shoppingCartWindow {
-    .shoppingCartContainer {
-        .shoppingCartTitles {
-            display: $useFlex;
-            flex-direction: $useFlexDirectionRow;
-            justify-content: $useSpaceBetween;
-            margin-bottom: 5%;
-            align-items: $useCenterForFlex;
-        }
-        .shoppingCartItemDiv {
-            display: $useFlex;
-            flex-direction: $useFlexDirectionRow;
-            justify-content: $useSpaceBetween;
-            align-items: $useCenterForFlex;
-            margin-top: 2.5%;
-            margin-bottom: 2.5%;
-
-            .nameAndImageSection {
-                display: $useFlex;
-                flex-direction: $useFlexDirectionRow;
-                justify-content: space-evenly;
-                align-items: $useCenterForFlex;
-                width: 31%;
-                img {
-                    width: 45px;
-                    height: 70px;
-                }
-    
-            }
-            .countDiv {
-                display: $useFlex;
-                flex-direction: $useFlexDirectionRow; 
-                justify-content: $useSpaceBetween;
-                width: 11%;
-                .addOrRemoveIcons {
-                    cursor: pointer;
-                }
-            }
-            .priceDiv {
-                display: $useFlex;
-                flex-direction: $useFlexDirectionRow;
-                justify-content: $useSpaceBetween;         
-                width: 20%;
-                .trashicon:hover {
-                    color: red;
-                    cursor: pointer;
-                    transition: color .2s ease-in-out;
-                }
-            }
-        }
-        .shoppingCartTotalPriceDiv {
-            display: $useFlex;
-            flex-direction: $useFlexDirectionRow;
-            justify-content: flex-end;
-            align-items: $useCenterForFlex;
-            margin-top: 5%;
-            margin-bottom: 5%;
-        }
-        .shoppingCartButtonDiv {
-            display: $useFlex;
-            flex-direction: $useFlexDirectionRow;
-            justify-content: $useSpaceBetween;
-            align-items: $useCenterForFlex;
-            margin-top: 2%;
-            margin-bottom: 2%;
-        }
-    }
-}
+@include checkout;
 
 .confirmContainer {
     background-color: rgba(31, 61, 31, 0.326);
@@ -223,4 +163,68 @@
         }
     }
 }
+
+.paymentContainer {
+    background-color: rgba(31, 61, 31, 0.326);
+    color: rgb(46, 69, 53);            
+
+    height: auto;
+    min-height: 90vh;
+    background-position: center; 
+    background-size: cover;
+
+    .paymentMain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            padding: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin: 10px;
+
+            input {
+                width: 75%;
+                padding: 10px;
+                margin-top: 5px
+            }
+        }
+
+        i {
+            font-size: x-large;
+        }
+
+        .paymentBtn {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-left: auto;
+            margin-right: 15%;
+            padding-top: 5vh;
+
+            a {
+                text-decoration: none;
+                color: gray;
+                margin-right: 10px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            button {
+                border-radius: 25px;
+                margin-top: 10px;
+                padding: 5px;
+            }
+        }
+    }
+}
+
 @include shoppingCartWindow;
