@@ -43,12 +43,6 @@ $(function() {
         $("#goToProductSite"+product.id).on("click",{chosenProduct: product}, storeProductInLS);
     })
 
-    //add total price of temporary shopping cart
-    for (let i = 0; i < shoppingCart.length; i++) {
-        totalPrice += shoppingCart[i].price;        
-    }
-    
-    createCheckoutHtml();
 });
 
 
@@ -70,7 +64,7 @@ function printProducts() {
             window.location.href = "html/product.html";
         });
 
-        $("<div>").addClass("fas fa-shopping-cart").attr("id", "addToShoppingCart"+product.id).appendTo(listitem);
+        $("<i>").addClass("fas fa-shopping-cart").attr("id", "addToShoppingCart"+product.id).appendTo(listitem);
 
         listitem.appendTo(container);
         container.appendTo($(".main"));
