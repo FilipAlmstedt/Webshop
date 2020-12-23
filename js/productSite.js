@@ -286,6 +286,7 @@ function getProductsFromLS(product){
 
 function addItemToShoppingCart(product){
     product.inCart++;
+    console.log(product);
     
     if(product.inCart == 1){
         shoppingCart.push(product);

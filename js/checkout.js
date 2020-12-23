@@ -27,9 +27,22 @@ let shoppingCartFromLS = localStorage.getItem("shoppingCart");
 let shoppingCart = JSON.parse(shoppingCartFromLS);
 
 $(function () {
+    $(".toggle").on("click",openMobileNavbar);
+
     createCheckoutHtml();
     console.log("hej");
 });
+
+/*Aktiverar klassen active i css som gör att navbar visas vertikalt i mobilen*/ 
+function openMobileNavbar(){
+    if ($(".item").hasClass("active")) {
+        $(".item").removeClass("active");
+    } 
+    else {
+        $(".item").addClass("active");
+    }
+}
+s
 
 function createCheckoutHtml () {
     $('.shoppingCart').html('');
