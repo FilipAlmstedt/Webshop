@@ -16,7 +16,6 @@ shoppingCartContainer.attr("class", "shoppingCartContainer");
 let totalPrice = 0;
 let shoppingCart = [];
 
-
 let p1 = new Product('css/images/gran1.jpg', "Elise", "Elise är en mindre gran för dig som inte vill ha absolut största granen i huset. Passar att placera varsomhelst i ditt hus.",200, 100, 0);
 let p2 = new Product('css/images/gran2.png', "Kristoffer", " Kristoffer är en standardgran som passar för alla hus. Denna gran är vår populäraste gran.",100, 350, 0);
 let p3 = new Product('css/images/gran3.png', "Ivan", "För dig som vill ha lite extra för att göra julen så speciell som möjligt så är Ivan granen för dig. OBS! Julgranspyntet ingår inte", 250, 650, 0);
@@ -62,8 +61,6 @@ function printProducts() {
         container.appendTo($(".main"));
         
     });
-
-    
     
 }
 
@@ -81,66 +78,6 @@ function updateLS(){
     localStorage.setItem("totalPrice", totalPrice);
 }
 
-
-function createCheckoutHtml () {
-    $('.shoppingCart').html('');
-
-    for (let i = 0; i < shoppingCart.length; i++) {
-
-        // get container - add divs
-        let productDiv = $('<div>').addClass('productDiv').appendTo($('.shoppingCart'));
-        let productImage = $('<img>').addClass('productImageCheckout').attr('src', "../"+shoppingCart[i].image).appendTo(productDiv);
-        let containerInfoAmount = $('<div>').addClass('containerInfoAmount').appendTo(productDiv);
-        let productInfo = $('<div>').addClass('productInfo').appendTo(containerInfoAmount);        
-        let productAmount = $('<div>').addClass('productAmount').appendTo(containerInfoAmount);  
-
-        // add product info - name, height, price
-        $('<p>').addClass('productName').html(shoppingCart[i].name).appendTo(productInfo);                
-        $('<p>').addClass('productHeight').html(shoppingCart[i].height + ' cm').appendTo(productInfo);                
-        $('<p>').addClass('productPrice').html(shoppingCart[i].price + ' SEK').appendTo(productInfo);  
-                
-        // add buttons + amount p tag
-        $('<button>').addClass('productButton').html('-').appendTo(productAmount).on('click', ()=> {subtractProductAmount(shoppingCart[i])});
-        $('<p>').html(shoppingCart[i].inCart).appendTo(productAmount);
-        $('<button>').addClass('productButton').html('+').appendTo(productAmount).on('click', ()=> {addProductAmount(shoppingCart[i])});
-    }
-
-    $('.totalPriceP').html("Totalt: " + totalPrice + " SEK");
-
-    // if cart is empty
-    if (shoppingCart.length == 0) {
-        $('<h4>').html('Din varukorg är tom').addClass('emptyCheckoutCart').appendTo($('.shoppingCart'));
-
-        $('#confirmPurchaseLink').attr("href", "#");
-
-        $('#confirmPurchaseButton').addClass("emptyCartButton");
-
-    }
-}
-
-// subtract products
-function subtractProductAmount (product){
-    product.inCart--
-    totalPrice -= product.price;
-
-    // splice product if amount = 0
-    if (product.inCart === 0) {
-        for (let i = 0; i < shoppingCart.length; i++) {
-            if (shoppingCart[i].id == product.id) {
-                shoppingCart.splice(i, 1);
-            }
-        }
-    };
-
-    createCheckoutHtml(); 
-};
-
-// add products
-function addProductAmount (product){
-    product.inCart++
-    totalPrice += product.price;
-    createCheckoutHtml();
-};
 
 /*Aktiverar klassen active i css som gör att navbar visas vertikalt i mobilen*/ 
 function openMobileNavbar(){
