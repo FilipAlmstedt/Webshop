@@ -1,4 +1,9 @@
 node_modules/
-jquery-ui-1.12.1/
+jquery-ui-1.12.1
 package-lock.json
+<<<<<<< HEAD
+=======
 css/main.css
+css/main.min.css
+>>>>>>> 1d3a3ff1d0f0f34da8bbd2f7a4edcdb6e75a935e
+html/debug.log

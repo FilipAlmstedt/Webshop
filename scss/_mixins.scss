@@ -5,13 +5,13 @@
 @import './mixins/welcomeContainer/arrowDiv';
 @import './mixins/welcomeContainer/responsiveDivs';
 
-@import 'scss/mixins/checkoutPage/_checkout.scss';
+@import './mixins/checkoutPage/checkout';
 @import './mixins/welcomeContainer/navbar';
 
 // mixin för varukorgsfönstret
 @import './mixins/shoppingCartWindow/shoppingCartContainer';
 
-@import 'scss/mixins/checkoutPage/_checkout.scss';
+@import './mixins/checkoutPage/checkout';
 
 // mixin för den enskilda produktsidan och den responsiva
 @import './mixins/productSite/productStyling';
