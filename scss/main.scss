@@ -164,4 +164,67 @@
     }
 }
 
+.paymentContainer {
+    background-color: rgba(31, 61, 31, 0.326);
+    color: rgb(46, 69, 53);            
+
+    height: auto;
+    min-height: 90vh;
+    background-position: center; 
+    background-size: cover;
+
+    .paymentMain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            padding: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin: 10px;
+
+            input {
+                width: 75%;
+                padding: 10px;
+                margin-top: 5px
+            }
+        }
+
+        i {
+            font-size: x-large;
+        }
+
+        .paymentBtn {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-left: auto;
+            margin-right: 15%;
+            padding-top: 5vh;
+
+            a {
+                text-decoration: none;
+                color: gray;
+                margin-right: 10px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            button {
+                border-radius: 25px;
+                margin-top: 10px;
+                padding: 5px;
+            }
+        }
+    }
+}
+
 @include shoppingCartWindow;
