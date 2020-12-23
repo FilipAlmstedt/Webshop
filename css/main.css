@@ -384,7 +384,6 @@
       padding: 10px 0px 10px; } }
 
 .checkoutContainer {
-  background-color: rgba(31, 61, 31, 0.326);
   color: #2e4535;
   min-height: 90vh; }
   .checkoutContainer .menu {
@@ -457,14 +456,12 @@
       .checkoutContainer .menu .toggle .bars:after {
         top: -5px; }
   .checkoutContainer .checkoutMain {
-    margin: 0;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px; }
     .checkoutContainer .checkoutMain .shoppingCart {
-      padding-top: 30px;
+      padding-top: 20px;
       width: 100%; }
       .checkoutContainer .checkoutMain .shoppingCart .productDiv {
         display: flex;
@@ -500,9 +497,6 @@
         display: flex;
         justify-content: center;
         color: rgba(255, 255, 255, 0.707); }
-      .checkoutContainer .checkoutMain .shoppingCart .emptyCartButton {
-        background-color: rgba(128, 128, 128, 0.204);
-        color: rgba(0, 0, 0, 0.293); }
     .checkoutContainer .checkoutMain .totalDiv {
       margin: auto;
       margin-right: 0;
@@ -527,39 +521,12 @@
           border-radius: 25px;
           padding: 5px; }
   @media screen and (min-width: 768px) {
-    .checkoutContainer .menu {
-      justify-content: center; }
-      .checkoutContainer .menu .logo {
-        flex: 1; }
-      .checkoutContainer .menu .item.button {
-        width: auto;
-        order: 1;
-        display: block; }
-      .checkoutContainer .menu .toggle {
-        order: 2; }
     .checkoutContainer .productImageCheckout {
-      width: 30% !important;
-      background-color: white; }
+      width: 30% !important; }
     .checkoutContainer .containerInfoAmount {
       flex-direction: row !important;
-      justify-content: space-around !important; }
-      .checkoutContainer .containerInfoAmount .productInfo {
-        display: flex;
-        flex-direction: row-reverse; } }
+      justify-content: space-around !important; } }
   @media screen and (min-width: 1024px) {
-    .checkoutContainer .menu .item {
-      display: block;
-      width: auto; }
-    .checkoutContainer .menu .logo {
-      order: 0; }
-    .checkoutContainer .menu .item {
-      order: 1; }
-    .checkoutContainer .menu li {
-      padding: 15px 10px; }
-    .checkoutContainer .menu .toggle {
-      display: none; }
-    .checkoutContainer .menu .menu li.button {
-      padding-right: 0; }
     .checkoutContainer .shoppingCart {
       width: 80% !important; }
       .checkoutContainer .shoppingCart .productDiv {

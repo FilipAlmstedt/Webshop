@@ -32,6 +32,7 @@ $(function() {
     modifyShoppingCart();
 
     shoppingCartContainer.appendTo($("#shoppingCartWindow"));
+
     $("#shoppingCartWindowButton").on("click", openShoppingCartWindow);
 
     printProducts();
@@ -40,7 +41,6 @@ $(function() {
         $("#addToShoppingCart"+product.id).on("click",{chosenProduct: product},addItemToShoppingCart);
         $("#goToProductSite"+product.id).on("click",{chosenProduct: product}, storeProductInLS);
     });
-    createCheckoutHtml();
 });
 
 
@@ -59,9 +59,7 @@ function printProducts() {
 
         listitem.appendTo(container);
         container.appendTo($(".main"));
-        
     });
-    
 }
 
 /* Lägger id:et och produkterna i localstorage så vi kan använda dem på alla andra sidor också */
@@ -77,7 +75,6 @@ function updateLS(){
     localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
     localStorage.setItem("totalPrice", totalPrice);
 }
-
 
 /*Aktiverar klassen active i css som gör att navbar visas vertikalt i mobilen*/ 
 function openMobileNavbar(){
