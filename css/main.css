@@ -351,6 +351,7 @@
     #wrapper .main #productlist {
       display: flex;
       flex-direction: column;
+      width: 100%;
       padding-bottom: 5vh; }
       #wrapper .main #productlist li {
         list-style: none;
@@ -376,6 +377,18 @@
       #wrapper .main #productlist li {
         width: 30%; }
         #wrapper .main #productlist li img {
+          width: 50%;
+          cursor: pointer; }
+        #wrapper .main #productlist li p {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 200; }
+        #wrapper .main #productlist li i {
+          cursor: pointer; }
+    @media screen and (min-width: 768px) {
+      #wrapper .main #productlist {
+        flex-direction: row;
+        flex-wrap: wrap; }
+        #wrapper .main #productlist li {
           width: 50%; } }
   #wrapper .footer {
     display: flex;

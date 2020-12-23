@@ -42,7 +42,7 @@ function openMobileNavbar(){
         $(".item").addClass("active");
     }
 }
-s
+
 
 function createCheckoutHtml () {
     $('.shoppingCart').html('');

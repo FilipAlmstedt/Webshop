@@ -41,7 +41,6 @@
 
     }
 
-
     @include menu;
 
     @include welcomeContainerResponsive;
@@ -69,12 +68,13 @@
             font-weight: 500;
             padding-top: 2%;
         }
-
+ 
         #productlist {
             display: flex;
             flex-direction: column;
+            width: 100%;
             padding-bottom: 5vh;
-
+ 
             li {
                 list-style: none;
                 padding-top: 5%;
@@ -83,23 +83,40 @@
                 align-items: center;
                 
                 img {
-                    width: 50%
+                    width: 50%;
+                    cursor: pointer;
                 }
-
+ 
                 p {
                     font-family: 'Poppins', sans-serif;
                     font-weight: 200;
+                    
                 }
-
+                i{
+                    cursor: pointer;
+                }
+ 
             }
         } 
+ 
+        @include tabletsOnly {
+            #productlist {
+                flex-direction: row;
+                flex-wrap: wrap;
+ 
+                li {
+                    width: 50%;
+                }
+            }
+        }
+    }
 
         @include tabletsOnly {
             #productlist {
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: space-evenly;
-
+              
                 li {
                     width: 50%;
 
