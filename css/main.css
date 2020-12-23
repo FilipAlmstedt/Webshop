@@ -268,7 +268,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding-top: 2%; }
+    padding-top: 2%;
+    background-color: rgba(31, 61, 31, 0.326); }
     #wrapper #showProductDiv .itemTitleAndImageDiv {
       width: 49vh;
       text-align: center;
@@ -280,7 +281,8 @@
       align-items: center; }
       #wrapper #showProductDiv .itemTitleAndImageDiv img {
         width: 45vh;
-        height: 70vh; }
+        height: 70vh;
+        border-radius: 50%; }
     #wrapper #showProductDiv .descriptionsAndPriceDiv {
       padding-top: 0.5%;
       padding-bottom: 2%;
@@ -292,6 +294,23 @@
       align-items: center; }
       #wrapper #showProductDiv .descriptionsAndPriceDiv h1 {
         text-align: center; }
+      #wrapper #showProductDiv .descriptionsAndPriceDiv #addToShoppingCartOnProductSite {
+        width: 49%;
+        height: 20%;
+        text-align: center;
+        padding: 5%;
+        background-color: #165B33;
+        color: #FBF5E9;
+        cursor: pointer;
+        border: none;
+        font-family: larger Arno Pro, Tribun ADF Std, serif;
+        font-style: italic;
+        border-radius: 50%;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+      #wrapper #showProductDiv .descriptionsAndPriceDiv #addToShoppingCartOnProductSite:hover {
+        background-color: #BB2528;
+        transition: background-color 0.4s ease-in-out;
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); }
   @media screen and (min-width: 1024px) {
     #wrapper #showProductDiv {
       display: flex;
@@ -308,7 +327,8 @@
         align-items: center; }
         #wrapper #showProductDiv .itemTitleAndImageDiv img {
           width: 45vh;
-          height: 70vh; }
+          height: 70vh;
+          border-radius: 50%; }
       #wrapper #showProductDiv .descriptionsAndPriceDiv {
         height: 40vh;
         display: flex;
