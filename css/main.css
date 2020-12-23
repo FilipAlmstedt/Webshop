@@ -633,6 +633,49 @@
       bottom: 20vh;
       color: grey; }
 
+.paymentContainer {
+  background-color: rgba(31, 61, 31, 0.326);
+  color: #2e4535;
+  height: auto;
+  min-height: 90vh;
+  background-position: center;
+  background-size: cover; }
+  .paymentContainer .paymentMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .paymentContainer .paymentMain h1 {
+      padding: 15px; }
+    .paymentContainer .paymentMain form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin: 10px; }
+      .paymentContainer .paymentMain form input {
+        width: 75%;
+        padding: 10px;
+        margin-top: 5px; }
+    .paymentContainer .paymentMain i {
+      font-size: x-large; }
+    .paymentContainer .paymentMain .paymentBtn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-left: auto;
+      margin-right: 15%;
+      padding-top: 5vh; }
+      .paymentContainer .paymentMain .paymentBtn a {
+        text-decoration: none;
+        color: gray;
+        margin-right: 10px; }
+        .paymentContainer .paymentMain .paymentBtn a:hover {
+          text-decoration: underline; }
+      .paymentContainer .paymentMain .paymentBtn button {
+        border-radius: 25px;
+        margin-top: 10px;
+        padding: 5px; }
+
 /*Klassen som finns i JQuerys egna bibliotek. La till custom styling*/
 .ui-dialog {
   background-color: #FFFAFA;
