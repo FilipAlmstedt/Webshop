@@ -1,4 +1,4 @@
-### Webshop
+# Webshop
 
 Group assignment in the course Javascript - grundkurs, made in Javascript (focused on JQuery, Jquery UI).
 
@@ -7,7 +7,7 @@ THe customer can then put it in a shopping cart and simulate a fake transaction 
 
 -------------------------------------------------------------------------------------
 
-###### Get started!
+### Get started!
 
 Use command `git clone` to clone the project. 
 
